@@ -18,35 +18,49 @@ This will be a second slide in section 'First section', without title.
 
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
 
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
 
