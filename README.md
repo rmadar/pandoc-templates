@@ -20,6 +20,9 @@ in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pd
 
 ## To-do-list
 
+It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
+order to properly perform the tasks below (and possibly many more).
+
 - [ ] modify latex template to remove horizontal line (so that slide transition don't appear in article.pdf)
 - [ ] define a block appearing only on slides and not in the article 
 (equivalent to `<div class="note">` but for slides only)
