@@ -1,22 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Romain Madar" />
   <title>Notes from SUSY2018 Conference</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../templates/webstyle_template.css" type="text/css" />
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="/home/rmadar/Documents/work/Meetings/2018-07-27-SUSY2028/MyNotes/pandoc-templates/templates/webstyle_template.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div id="header">
+<header>
 <h1 class="title">Notes from SUSY2018 Conference</h1>
-<h2 class="author">Romain Madar</h2>
-<h3 class="date">06/2020</h3>
-</div>
-<div id="TOC">
+<p class="author">Romain Madar</p>
+<p class="date">06/2020</p>
+</header>
+<nav id="TOC">
 <ul>
 <li><a href="#collider-physics"><span class="toc-section-number">1</span> Collider physics</a><ul>
 <li><a href="#precision-calculations-and-generators"><span class="toc-section-number">1.1</span> Precision calculations and generators</a></li>
@@ -43,7 +51,7 @@
 <li><a href="#quantum-field-theory"><span class="toc-section-number">4.3</span> Quantum field theory</a></li>
 </ul></li>
 </ul>
-</div>
+</nav>
 <h1 id="collider-physics"><span class="header-section-number">1</span> Collider physics</h1>
 <h2 id="precision-calculations-and-generators"><span class="header-section-number">1.1</span> Precision calculations and generators</h2>
 <p><em>Plenary session</em> - <a href="https://indico.cern.ch/event/689399/contributions/2924484/attachments/1690811/2720598/pcalc.pdf">presentation</a></p>
@@ -51,7 +59,7 @@
 <li><strong>Main ingeredients:</strong>
 <ul>
 <li>notion of <em>fixed order</em>, <em>matched</em> and <em>merged</em> (pros and cons to be identified)</li>
-<li>NLO fully automatized &quot;NLO revolution&quot;, but NNLO is possible only for <span class="math inline">\((2)\to (2)\)</span> process</li>
+<li>NLO fully automatized “NLO revolution”, but NNLO is possible only for <span class="math inline">\((2)\to (2)\)</span> process</li>
 <li>importance of mixed-coupling perturbative developpement, especially in tails of distributions (not trivial interplay of higher-order QCD and EW corrections) .</li>
 <li>This starts to be relevant for EFT parametrization of new physics (mixing between <span class="math inline">\(\alpha_{s}\)</span> and <span class="math inline">\(1/\Lambda\)</span>).</li>
 </ul></li>
@@ -75,8 +83,8 @@
 <li>chargino and neutralino are mixing of bino, winos, higgsino</li>
 <li>stong production versus electroweak production</li>
 <li>electroweak cross-section are very small and only started at Run 2</li>
-<li>simplified model (<em>ie.</em> 100% BR) are assumed in 2D limit plots, but this doesn't directly rely to nMSSM exclusion</li>
-<li>interesting idea: CMS has low pT trigger with 2 kHz rate but don't record all the information of the event, allowing to keep the statistics at low pT.</li>
+<li>simplified model (<em>ie.</em> 100% BR) are assumed in 2D limit plots, but this doesn’t directly rely to nMSSM exclusion</li>
+<li>interesting idea: CMS has low pT trigger with 2 kHz rate but don’t record all the information of the event, allowing to keep the statistics at low pT.</li>
 </ul></li>
 </ul>
 <h2 id="jet-rate-and-jetgluon-tagging"><span class="header-section-number">1.4</span> Jet rate and jet/gluon tagging</h2>
@@ -95,24 +103,21 @@
 <li><p><strong>Main ingredients:</strong></p>
 <ul>
 <li>two main anomalies summarized here:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p><span class="math inline">\(B \to D^{(*)} \ell\nu\)</span> probing lepton universality with <span class="math inline">\(\tau\)</span> and <span class="math inline">\(e/\mu\)</span> at the tree level through the ratio between <span class="math inline">\(\ell=\tau\)</span> and <span class="math inline">\(\ell=e/\mu\)</span> BR (<span class="math inline">\(R_D\)</span>).</p></li>
 <li><p><span class="math inline">\(B \to K^* \ell^+\ell^-\)</span> probing lepton universality between <span class="math inline">\(e\)</span> and <span class="math inline">\(\mu\)</span> at the 1-loop FCNC level, using angular distribution (<em>e.g.</em> <span class="math inline">\(P_5\)</span>) and ratio of BR in <span class="math inline">\(\mu\mu\)</span> and <span class="math inline">\(ee\)</span> (<span class="math inline">\(R_{K}\)</span>).</p></li>
 </ol></li>
 </ul></li>
 </ul>
-<div class="figure">
-<img src="RDanomaly.png" alt="Anomaly observed in B \to D^{(*)} \ell\nu" style="width:60.0%" />
-<p class="caption">Anomaly observed in <span class="math inline">\(B \to D^{(*)} \ell\nu\)</span></p>
-</div>
-<div class="figure">
-<img src="P5anomaly.png" alt="Angular anomaly observed in B \to K^{*} \ell^+\ell^-" style="width:60.0%" />
-<p class="caption">Angular anomaly observed in <span class="math inline">\(B \to K^{*} \ell^+\ell^-\)</span></p>
-</div>
-<div class="figure">
-<img src="RKanomaly.png" alt="Anomaly observed in B \to K^{*} \ell^+\ell^-" style="width:60.0%" />
-<p class="caption">Anomaly observed in <span class="math inline">\(B \to K^{*} \ell^+\ell^-\)</span></p>
-</div>
+<figure>
+<img src="RDanomaly.png" alt="Anomaly observed in B \to D^{(*)} \ell\nu" style="width:60.0%" /><figcaption>Anomaly observed in <span class="math inline">\(B \to D^{(*)} \ell\nu\)</span></figcaption>
+</figure>
+<figure>
+<img src="P5anomaly.png" alt="Angular anomaly observed in B \to K^{*} \ell^+\ell^-" style="width:60.0%" /><figcaption>Angular anomaly observed in <span class="math inline">\(B \to K^{*} \ell^+\ell^-\)</span></figcaption>
+</figure>
+<figure>
+<img src="RKanomaly.png" alt="Anomaly observed in B \to K^{*} \ell^+\ell^-" style="width:60.0%" /><figcaption>Anomaly observed in <span class="math inline">\(B \to K^{*} \ell^+\ell^-\)</span></figcaption>
+</figure>
 <ul>
 <li><p>Attempt to explain it using two main approaches: standard model effective field theory with dimension 9 and 10 operators, and direct model building approach based on coloured neutral boson coupled to <span class="math inline">\(\tau-\mu\)</span> or lepto-quarks.</p></li>
 <li><p>Suggestion of other observables to measure in order to better identify which scenario is actually realized (<em>e.g.</em> <span class="math inline">\(pp \to \tau\tau +X\)</span> and <span class="math inline">\(B\to K^{*}\tau\tau\)</span>).</p></li>
@@ -124,7 +129,7 @@
 <li>predicts <span class="math inline">\(y_{t}\)</span>, <span class="math inline">\(y_{b}\)</span>, <span class="math inline">\(y_{\tau}\)</span> &amp; 3 gauge couplings <span class="math inline">\(\alpha_{i}\)</span> using IR fixed points</li>
 <li><em>fixed points</em> is way to naturally stabilize quantum corrections for the UV region, but IR gives a natural values (<a href="https://indico.in2p3.fr/event/12972/contributions/12394/attachments/10534/13046/KowalskaLyon_05.08.2016.pdf">Asymptotic Safety Beyond the Standard Model, LIO2016</a>)</li>
 <li>start at the GUT scale and run depending on the particle content <span class="math inline">\(\to\)</span> explain 6 constants!</li>
-<li>drawback: doesn't deal with 1st and 2nd generation (too light)</li>
+<li>drawback: doesn’t deal with 1st and 2nd generation (too light)</li>
 </ul>
 <h2 id="new-ideas-in-bsm"><span class="header-section-number">2.2</span> New ideas in BSM</h2>
 <p><em>Plenary session</em> - <a href="https://indico.cern.ch/event/689399/contributions/2945174/attachments/1691954/2722373/susy_2018.pdf">presentation</a></p>
@@ -142,10 +147,9 @@
 </ul></li>
 </ul>
 <hr />
-<div class="figure">
-<img src="EFToperator.png" alt="Number of operator for each dimension (3 and 4 generations)" style="width:70.0%" />
-<p class="caption">Number of operator for each dimension (3 and 4 generations)</p>
-</div>
+<figure>
+<img src="EFToperator.png" alt="Number of operator for each dimension (3 and 4 generations)" style="width:70.0%" /><figcaption>Number of operator for each dimension (3 and 4 generations)</figcaption>
+</figure>
 <h2 id="constraining-low-energy-eft-sm-with-dune"><span class="header-section-number">2.3</span> Constraining low energy EFT SM with DUNE</h2>
 <p><em>BSM aspects of flavour physics</em> - <a href="https://indico.cern.ch/event/689399/contributions/3005422/attachments/1691523/2721590/DUNEandEFT_Grilli.pdf">presentation</a></p>
 <ul>
@@ -154,7 +158,7 @@
 <li>effective theory at low energy (weak EFTSM) integrating out heavy fields</li>
 <li>prediction of neutrino-quark and neutrino-lepton interaction</li>
 <li>expected precision from DUNE for three types of process is translated in term of wEFTSM coefficients:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>neutrino dffusion over coulomb field of nuclei <span class="math inline">\(\nu \to \nu \ell^+\ell^-\)</span></li>
 <li>neutrino-electron diffusion <span class="math inline">\(\nu e \to \nu e\)</span></li>
 <li>neutrino-nucleon diffusion <span class="math inline">\(\nu N \to \nu N\)</span></li>
@@ -178,36 +182,33 @@
 <li><strong>Main ingredients</strong>
 <ul>
 <li>Review of current measurements based on
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>cosmic microwave background (CMB)</li>
 <li>super noaves (SN), weak gravitational lensing (WL)</li>
 <li>baryon acoustic oscillation (BA).</li>
 </ol></li>
-<li>Introduction of a &quot;new&quot; observable <span class="math inline">\(\sigma_{8}\)</span> probing large structure flucutation (<span class="math inline">\(\sigma_8\equiv\)</span> RMS of mass in sphere of <span class="math inline">\(R=8H^{-1}\)</span>Mpc)</li>
+<li>Introduction of a “new” observable <span class="math inline">\(\sigma_{8}\)</span> probing large structure flucutation (<span class="math inline">\(\sigma_8\equiv\)</span> RMS of mass in sphere of <span class="math inline">\(R=8H^{-1}\)</span>Mpc)</li>
 <li>Constraints starts to be sensitive to neutrino total mass, so results are presented with both floating mass and fixed mass.</li>
 </ul></li>
 <li><strong>Emphasis on <span class="math inline">\(H_0\)</span> tension and precision measurement</strong>
 <ul>
 <li>there is a <span class="math inline">\(\sim 3\sigma\)</span> tension between SN-based and CMB-based measurements</li>
-<li>trying to find new data to arbitrate like &quot;distance ladder with BAO&quot;</li>
+<li>trying to find new data to arbitrate like “distance ladder with BAO”</li>
 <li>how to reach 1% precision on <span class="math inline">\(H_0\)</span>? Inlarge cepheid parallax measurements, include lens time delay, cluster count (mass) and <em>gravitational waves created by binary system</em>! Precise measurement could constrain neutrino mass.</li>
 </ul></li>
 </ul>
 <hr />
-<div class="figure">
-<img src="H0tension.png" alt="Precision on Hubble constant versus time for two classes of measurements" style="width:60.0%" />
-<p class="caption">Precision on Hubble constant versus time for two classes of measurements</p>
-</div>
+<figure>
+<img src="H0tension.png" alt="Precision on Hubble constant versus time for two classes of measurements" style="width:60.0%" /><figcaption>Precision on Hubble constant versus time for two classes of measurements</figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="H0tension2.png" alt="Impact of few cosmological paramter on the tension" style="width:60.0%" />
-<p class="caption">Impact of few cosmological paramter on the tension</p>
-</div>
+<figure>
+<img src="H0tension2.png" alt="Impact of few cosmological paramter on the tension" style="width:60.0%" /><figcaption>Impact of few cosmological paramter on the tension</figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="H0tension3.png" alt="Probability of H_0 value infered on GW of binary system, which a fully idependant measurement of the universe expension" style="width:60.0%" />
-<p class="caption">Probability of <span class="math inline">\(H_0\)</span> value infered on GW of binary system, which a fully idependant measurement of the universe expension</p>
-</div>
+<figure>
+<img src="H0tension3.png" alt="Probability of H_0 value infered on GW of binary system, which a fully idependant measurement of the universe expension" style="width:60.0%" /><figcaption>Probability of <span class="math inline">\(H_0\)</span> value infered on GW of binary system, which a fully idependant measurement of the universe expension</figcaption>
+</figure>
 
 <h2 id="last-planck-results"><span class="header-section-number">3.2</span> Last PLANCK results</h2>
 <p><em>plenary session</em> - <a href="https://indico.cern.ch/event/689399/contributions/2953564/attachments/1693373/2725127/Natoli_SUSY2018.pdf">presentation</a></p>
@@ -215,103 +216,101 @@
 <li><strong>Main ingredients</strong>
 <ul>
 <li>Legacy data analyzed: constraints/measurements are obtained for
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><span class="math inline">\(\Lambda\)</span>CDM model based on the angular structure of the temperature fluctuations</li>
 <li>polarization anisotropies (only E mode), which is a new &amp; difficult measurement (polarizaton come from spin-dependant inverse compton diffusion of CMB photon on matter)</li>
 <li>inflation scenario and properties (power spectrum of the fluctuations <span class="math inline">\(P(k)\)</span> where <span class="math inline">\(k\)</span> is the spacial frequency of the fluctuations</li>
 <li>sensitivity to weak lensing (CMB photons sentivite to dark matter density between last surface scattering an now), using the four correlation point function (angle-angle correlation function). Weak lensing also convert E-mode into B-mode - which can also be used</li>
 <li>Effective number of neutrinos and mass, and correlation with <span class="math inline">\(H_0/\sigma_8\)</span> tension</li>
-</ol></li>
+</ol>
+<ul>
 <li>Precision of parameter reaching the sub-percent level!</li>
+</ul></li>
 </ul></li>
 </ul>
 <hr />
 <table>
 <thead>
 <tr class="header">
-<th align="center">Model parameter</th>
-<th align="center">Mean</th>
-<th align="center">Std dev</th>
-<th align="center">Rel. err.</th>
+<th style="text-align: center;">Model parameter</th>
+<th style="text-align: center;">Mean</th>
+<th style="text-align: center;">Std dev</th>
+<th style="text-align: center;">Rel. err.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\Omega_b h^2\)</span> Baryon density</td>
-<td align="center">0.02237</td>
-<td align="center">0.00015</td>
-<td align="center">0.007</td>
+<td style="text-align: center;"><span class="math inline">\(\Omega_b h^2\)</span> Baryon density</td>
+<td style="text-align: center;">0.02237</td>
+<td style="text-align: center;">0.00015</td>
+<td style="text-align: center;">0.007</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\Omega_c h^2\)</span> Dark matter density</td>
-<td align="center">0.1200</td>
-<td align="center">0.0012</td>
-<td align="center">0.01</td>
+<td style="text-align: center;"><span class="math inline">\(\Omega_c h^2\)</span> Dark matter density</td>
+<td style="text-align: center;">0.1200</td>
+<td style="text-align: center;">0.0012</td>
+<td style="text-align: center;">0.01</td>
 </tr>
 <tr class="odd">
-<td align="center">100<span class="math inline">\(\theta\)</span> CMB acoustic scale</td>
-<td align="center">1.04092</td>
-<td align="center">0.00031</td>
-<td align="center">0.0003</td>
+<td style="text-align: center;">100<span class="math inline">\(\theta\)</span> CMB acoustic scale</td>
+<td style="text-align: center;">1.04092</td>
+<td style="text-align: center;">0.00031</td>
+<td style="text-align: center;">0.0003</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\tau\)</span> Optical depth to reionization</td>
-<td align="center">0.0544</td>
-<td align="center">0.0073</td>
-<td align="center">0.13</td>
+<td style="text-align: center;"><span class="math inline">\(\tau\)</span> Optical depth to reionization</td>
+<td style="text-align: center;">0.0544</td>
+<td style="text-align: center;">0.0073</td>
+<td style="text-align: center;">0.13</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\ln(A_s 10^{10})\)</span> Primordial amplitude of perturbation</td>
-<td align="center">3.044</td>
-<td align="center">0.014</td>
-<td align="center">0.007</td>
+<td style="text-align: center;"><span class="math inline">\(\ln(A_s 10^{10})\)</span> Primordial amplitude of perturbation</td>
+<td style="text-align: center;">3.044</td>
+<td style="text-align: center;">0.014</td>
+<td style="text-align: center;">0.007</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(n_s\)</span> Primordial Scalar spectral index</td>
-<td align="center">0.9649</td>
-<td align="center">0.0042</td>
-<td align="center">0.004</td>
+<td style="text-align: center;"><span class="math inline">\(n_s\)</span> Primordial Scalar spectral index</td>
+<td style="text-align: center;">0.9649</td>
+<td style="text-align: center;">0.0042</td>
+<td style="text-align: center;">0.004</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(H_0\)</span> Hubble parameter today</td>
-<td align="center">67.36</td>
-<td align="center">0.54</td>
-<td align="center">0.008</td>
+<td style="text-align: center;"><span class="math inline">\(H_0\)</span> Hubble parameter today</td>
+<td style="text-align: center;">67.36</td>
+<td style="text-align: center;">0.54</td>
+<td style="text-align: center;">0.008</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\Omega_m\)</span> Total matter density</td>
-<td align="center">0.3153</td>
-<td align="center">0.0073</td>
-<td align="center">0.023</td>
+<td style="text-align: center;"><span class="math inline">\(\Omega_m\)</span> Total matter density</td>
+<td style="text-align: center;">0.3153</td>
+<td style="text-align: center;">0.0073</td>
+<td style="text-align: center;">0.023</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\sigma_8\)</span> Matter perturbation amplitude</td>
-<td align="center">0.8111</td>
-<td align="center">0.0060</td>
-<td align="center">0.007</td>
+<td style="text-align: center;"><span class="math inline">\(\sigma_8\)</span> Matter perturbation amplitude</td>
+<td style="text-align: center;">0.8111</td>
+<td style="text-align: center;">0.0060</td>
+<td style="text-align: center;">0.007</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<div class="figure">
-<img src="H0neutrino.png" alt="Impact of effective number of neutrinos on H_0" style="width:100.0%" />
-<p class="caption">Impact of effective number of neutrinos on <span class="math inline">\(H_0\)</span></p>
-</div>
+<figure>
+<img src="H0neutrino.png" alt="Impact of effective number of neutrinos on H_0" style="width:100.0%" /><figcaption>Impact of effective number of neutrinos on <span class="math inline">\(H_0\)</span></figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="Inflation.png" alt="Measurement of the power spectrum index n_s (defined as P(k) \sim k^{n_s} versus time. n_s=1 implies inflation but n_s has to be lower than 1 to have a end to the inflation phase. This conclusion is very general and additional dependency of power spectrum can be checked, like n_n(k) or addional \ln(k) term" style="width:70.0%" />
-<p class="caption">Measurement of the power spectrum index <span class="math inline">\(n_s\)</span> (defined as <span class="math inline">\(P(k) \sim k^{n_s}\)</span> versus time. <span class="math inline">\(n_s=1\)</span> implies inflation but <span class="math inline">\(n_s\)</span> has to be lower than 1 to have a end to the inflation phase. This conclusion is very general and additional dependency of power spectrum can be checked, like <span class="math inline">\(n_n(k)\)</span> or addional <span class="math inline">\(\ln(k)\)</span> term</p>
-</div>
+<figure>
+<img src="Inflation.png" alt="Measurement of the power spectrum index n_s (defined as P(k) \sim k^{n_s} versus time. n_s=1 implies inflation but n_s has to be lower than 1 to have a end to the inflation phase. This conclusion is very general and additional dependency of power spectrum can be checked, like n_n(k) or addional \ln(k) term" style="width:70.0%" /><figcaption>Measurement of the power spectrum index <span class="math inline">\(n_s\)</span> (defined as <span class="math inline">\(P(k) \sim k^{n_s}\)</span> versus time. <span class="math inline">\(n_s=1\)</span> implies inflation but <span class="math inline">\(n_s\)</span> has to be lower than 1 to have a end to the inflation phase. This conclusion is very general and additional dependency of power spectrum can be checked, like <span class="math inline">\(n_n(k)\)</span> or addional <span class="math inline">\(\ln(k)\)</span> term</figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="H0correlation.png" alt="Correlation between the effective number of neutrinos, the hubble constant and matter perturbation amplitude. Reducing the tension of H_0 is possible by increasing N_{\text{eff}} but then it degrades \sigma_8" style="width:70.0%" />
-<p class="caption">Correlation between the effective number of neutrinos, the hubble constant and matter perturbation amplitude. Reducing the tension of <span class="math inline">\(H_0\)</span> is possible by increasing <span class="math inline">\(N_{\text{eff}}\)</span> but then it degrades <span class="math inline">\(\sigma_8\)</span></p>
-</div>
+<figure>
+<img src="H0correlation.png" alt="Correlation between the effective number of neutrinos, the hubble constant and matter perturbation amplitude. Reducing the tension of H_0 is possible by increasing N_{\text{eff}} but then it degrades \sigma_8" style="width:70.0%" /><figcaption>Correlation between the effective number of neutrinos, the hubble constant and matter perturbation amplitude. Reducing the tension of <span class="math inline">\(H_0\)</span> is possible by increasing <span class="math inline">\(N_{\text{eff}}\)</span> but then it degrades <span class="math inline">\(\sigma_8\)</span></figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="WL.png" alt="Weak lensing measurement on CMB photons based on four-point correlation function (ie angle-angle correlation function)" style="width:70.0%" />
-<p class="caption">Weak lensing measurement on CMB photons based on four-point correlation function (ie angle-angle correlation function)</p>
-</div>
+<figure>
+<img src="WL.png" alt="Weak lensing measurement on CMB photons based on four-point correlation function (ie angle-angle correlation function)" style="width:70.0%" /><figcaption>Weak lensing measurement on CMB photons based on four-point correlation function (ie angle-angle correlation function)</figcaption>
+</figure>
 <hr />
 <ul>
 <li>Presentation of internal anomalies and tension with other experiments, such as:
@@ -335,22 +334,19 @@
 </ul></li>
 </ul>
 <hr />
-<div class="figure">
-<img src="PBH1.png" alt="Current exclusions of primordial black holes for different formation rates and masses" style="width:70.0%" />
-<p class="caption">Current exclusions of primordial black holes for different formation rates and masses</p>
-</div>
+<figure>
+<img src="PBH1.png" alt="Current exclusions of primordial black holes for different formation rates and masses" style="width:70.0%" /><figcaption>Current exclusions of primordial black holes for different formation rates and masses</figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="PBH2.png" alt="Schematics of masses of objects detected using gravitational waves, and an interesting whole at intermediate masses" style="width:70.0%" />
-<p class="caption">Schematics of masses of objects detected using gravitational waves, and an interesting whole at intermediate masses</p>
-</div>
+<figure>
+<img src="PBH2.png" alt="Schematics of masses of objects detected using gravitational waves, and an interesting whole at intermediate masses" style="width:70.0%" /><figcaption>Schematics of masses of objects detected using gravitational waves, and an interesting whole at intermediate masses</figcaption>
+</figure>
 
 <h2 id="new-ideas-in-inflation"><span class="header-section-number">3.4</span> New ideas in inflation</h2>
 <p><em>plenary session</em> - <a href="https://indico.cern.ch/event/689399/contributions/2953662/attachments/1694125/2726431/Baumann-SUSY-2018.pdf">presentation</a></p>
-<div class="figure">
-<img src="inflation1.png" alt="Analogy between particle physics and inflation: correlations functions drives microscopic behaviour of particle interactions that we see with detector, while they might generate original fluctuations that we can detect on earth" style="width:70.0%" />
-<p class="caption">Analogy between particle physics and inflation: correlations functions drives microscopic behaviour of particle interactions that we see with detector, while they might generate original fluctuations that we can detect on earth</p>
-</div>
+<figure>
+<img src="inflation1.png" alt="Analogy between particle physics and inflation: correlations functions drives microscopic behaviour of particle interactions that we see with detector, while they might generate original fluctuations that we can detect on earth" style="width:70.0%" /><figcaption>Analogy between particle physics and inflation: correlations functions drives microscopic behaviour of particle interactions that we see with detector, while they might generate original fluctuations that we can detect on earth</figcaption>
+</figure>
 <hr />
 <ul>
 <li><p><strong>Main ingredients</strong></p>
@@ -363,15 +359,13 @@
 </ul></li>
 </ul>
 <hr />
-<div class="figure">
-<img src="inflation2.png" alt="Basic principle of where these correlations functions manifest, and where do we measure them" style="width:70.0%" />
-<p class="caption">Basic principle of where these correlations functions manifest, and where do we measure them</p>
-</div>
+<figure>
+<img src="inflation2.png" alt="Basic principle of where these correlations functions manifest, and where do we measure them" style="width:70.0%" /><figcaption>Basic principle of where these correlations functions manifest, and where do we measure them</figcaption>
+</figure>
 <hr />
-<div class="figure">
-<img src="inflation3.png" alt="Once analytical structure is studied, a nice paraellel can be done with EFT in particle physics, getting a more complete behaviour of primordial fluctuations structures" style="width:70.0%" />
-<p class="caption">Once analytical structure is studied, a nice paraellel can be done with EFT in particle physics, getting a more complete behaviour of primordial fluctuations structures</p>
-</div>
+<figure>
+<img src="inflation3.png" alt="Once analytical structure is studied, a nice paraellel can be done with EFT in particle physics, getting a more complete behaviour of primordial fluctuations structures" style="width:70.0%" /><figcaption>Once analytical structure is studied, a nice paraellel can be done with EFT in particle physics, getting a more complete behaviour of primordial fluctuations structures</figcaption>
+</figure>
 <ul>
 <li>Main drawback of this approach is that predictions are quite blow current experimental sensitivities, but not without reach (with optimistic extrapolations)</li>
 </ul>
@@ -380,12 +374,12 @@
 <p><strong>1. Fixed-ordered vs Matching vs Merging</strong> (not confirmed)</p>
 <p><strong>a. fixed-order</strong> this is pure matrix element (ME) calculation with a fixed multiplicity in the final state, <em>e.g.</em> no additional hard jet, but additional jets are possible via parton showering (PS)</p>
 <p><strong>b. matching</strong> this approach corrects parton kinematics generated by PS using the ratio ME to PS prediction in order to match the two prediction in the intermediate region. This works only at LO and allow to have <em>e.g.</em> <span class="math inline">\(pp \to t\bar{t}+q\bar{q}+X\)</span> where the <span class="math inline">\(X\)</span> are radiations from PS.</p>
-<p><strong>c. merging</strong> generate parton either from showering process or matrix-element calculation depending on a given criteria (based on <span class="math inline">\(p_T\)</span> or <span class="math inline">\(\Delta R\)</span> or both) to avoid double counting. This can be applied to ME with +1j, +2j, ... +Nj and add all the samples together to have an accurate prediction. This works at NLO too.</p>
+<p><strong>c. merging</strong> generate parton either from showering process or matrix-element calculation depending on a given criteria (based on <span class="math inline">\(p_T\)</span> or <span class="math inline">\(\Delta R\)</span> or both) to avoid double counting. This can be applied to ME with +1j, +2j, … +Nj and add all the samples together to have an accurate prediction. This works at NLO too.</p>
 <p>Nice talk can be found at <a href="http://www.physics.ntua.gr/corfu2017/Talks/marek_schoenherr@cern_ch_01.pdf">TOOL 2017 conference</a> (p.19-20)</p>
 <hr />
-<p><strong>2. What are the key ingredients of the &quot;NLO revolution&quot;?</strong></p>
-<p>The &quot;NLO revolution&quot; (<em>ie.</em> the automation of NLO differential cross-section computation for any model) was possible using the mathematical structure of the amplitudes:</p>
-<p><strong>1. subtraction formalism</strong>: enable non-divergent integrands for real corrections. Indeed, real corrections only have IR divergence exactly compensated by IR divergence from virtural corrections. But it's important to be able to compute each contribution independantly.</p>
+<p><strong>2. What are the key ingredients of the “NLO revolution”?</strong></p>
+<p>The “NLO revolution” (<em>ie.</em> the automation of NLO differential cross-section computation for any model) was possible using the mathematical structure of the amplitudes:</p>
+<p><strong>1. subtraction formalism</strong>: enable non-divergent integrands for real corrections. Indeed, real corrections only have IR divergence exactly compensated by IR divergence from virtural corrections. But it’s important to be able to compute each contribution independantly.</p>
 <p><strong>2. master integrals</strong>: enable to reduce 1-loop calculation to a set of standard integral with some coefficients. Those are computable using tensor reduction or unitarty cuts.</p>
 <p><strong>3. Matching &amp; merging</strong>: enable to exploit most accurate calculations depending on the phase-space region, and group them together to get a final prediction.</p>
 <h2 id="spin-and-helicity-in-top-quark-physics"><span class="header-section-number">4.2</span> Spin and helicity in top quark physics</h2>
@@ -401,7 +395,7 @@
 h\equiv\vec{s}\cdot\vec{p}/|\vec{p}|~~,~~ \vec{s}_t=\vec{s}_W+\vec{s}_b+\vec{J}_{W,b}
 \]</span></p>
 <p>But:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>the helicity analysis consider all top quarks together where the <em>up</em> and <em>down</em> states are averaged. Helicity of W are sentitive to the top quark decay</p></li>
 <li><p>the spin correlation analysis looks at the correlation of the top and the anti-top in the same event. It does rely on the W helicity (since what is detected is the lepton coming from <span class="math inline">\(t\to Wb\to \ell\nu b\)</span>), but it primarily probes the correlation of the top and the anti-top (e.g. (<em>up</em>,<em>up</em>) or (<em>down</em>,<em>down</em>)) induced in the production mode.</p></li>
 </ol>
@@ -412,7 +406,7 @@ h\equiv\vec{s}\cdot\vec{p}/|\vec{p}|~~,~~ \vec{s}_t=\vec{s}_W+\vec{s}_b+\vec{J}_
 <ul>
 <li>This was discussed in the context of the top quark (chromo-electric/magnetic dipole)</li>
 <li>To dig out: look at <span class="math inline">\(e-n\)</span> diffusion with structure functions</li>
-<li>For a given vertex, radiatiative correction or additional interaction can give an effective &quot;structure&quot; which leads to <em>dipole</em></li>
+<li>For a given vertex, radiatiative correction or additional interaction can give an effective “structure” which leads to <em>dipole</em></li>
 </ul>
 <hr />
 <p><strong>2. What are Wilson loops and how do they link EFT and operators</strong></p>
@@ -421,7 +415,7 @@ h\equiv\vec{s}\cdot\vec{p}/|\vec{p}|~~,~~ \vec{s}_t=\vec{s}_W+\vec{s}_b+\vec{J}_
 <li>It is a way to intergrate out heavy degree of freedom of the theory</li>
 </ul>
 <hr />
-<p><strong>3. What is the dimension of an operator and why it's relevant for EFT?</strong></p>
+<p><strong>3. What is the dimension of an operator and why it’s relevant for EFT?</strong></p>
 <ul>
 <li>Based on the dimension of the action <span class="math inline">\([S]=\hbar=1\)</span></li>
 <li>Dimension on usual fields can be deduced <span class="math display">\[
@@ -443,8 +437,8 @@ S = \int \mathcal{L}(x) \, \mathrm{d}^nx
 \]</span></p>
 <p>The last equality is related to renomarlisabitlity of the a theory (by counting momenta power in a an amplitude including loops): <span class="math inline">\([g]&lt;0\)</span> means that the theory is not renormalizable. EFT is a parametrization based on interaction terms (operators) of dimension <span class="math inline">\(d\)</span> divided by a cut-off scale <span class="math inline">\(\Lambda^{d-n}\)</span> so that <span class="math inline">\([\mathcal{L}]=n\)</span>: <span class="math display">\[
 \mathcal{L}_{\text{EFT}} = \sum_{d,i} \frac{c^d_i O^d_i}{\Lambda^{d-n}} =  \sum_{d} \frac{\mathcal{L}_d}{\Lambda^{d-n}} = \mathcal{L}_{d \leq 4} + \frac{\mathcal{L}_{5}}{\Lambda} + \frac{\mathcal{L}_{6}}{\Lambda^2} + ...
-\]</span> where terms with <span class="math inline">\(d&gt;4\)</span> are not renomarlizable (divergences when <span class="math inline">\(\Lambda\to\infty\)</span> can't be absorbed by a finit number of redefinition) and are valid only for momentum lower than <span class="math inline">\(\Lambda\)</span>. A nice review can be found in <a href="https://arxiv.org/pdf/1804.05863.pdf">arXiv:1804.05863</a>.</p>
-<p>Apprently dimension 5 operators are knows since the 80's and contains neutrino masses and oscillations. The number of operators for a given dimension can quickly explode (cf. figure).</p>
+\]</span> where terms with <span class="math inline">\(d&gt;4\)</span> are not renomarlizable (divergences when <span class="math inline">\(\Lambda\to\infty\)</span> can’t be absorbed by a finit number of redefinition) and are valid only for momentum lower than <span class="math inline">\(\Lambda\)</span>. A nice review can be found in <a href="https://arxiv.org/pdf/1804.05863.pdf">arXiv:1804.05863</a>.</p>
+<p>Apprently dimension 5 operators are knows since the 80’s and contains neutrino masses and oscillations. The number of operators for a given dimension can quickly explode (cf. figure).</p>
 </blockquote>
 </div>
 </body>
