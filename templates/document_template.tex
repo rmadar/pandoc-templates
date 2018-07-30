@@ -299,18 +299,14 @@ $if(title)$
 $endif$
 
 %% Add an abstract only for article
-$if(documentclass.article)$$if(abstract)$
-\begin{abstract}
-  toto
-  $abstract$
-\end{abstract}
-$endif$$endif$
-
+$if(display-abstract)$
 $if(abstract)$
 \begin{abstract}
   $abstract$
 \end{abstract}
 $endif$
+$endif$
+
   
 $for(include-before)$
 $include-before$
