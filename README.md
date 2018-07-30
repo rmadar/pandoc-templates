@@ -3,13 +3,31 @@
 This repository contains various templates and building scripts based on [pandoc](http://pandoc.org) 
 in order to produce article, slides or webpage with a predifined (and tunable) style.
 
-## Setup the too
+## Setup the tool
 
 First the user need to setup the proper environemental variables by doing:
 ```
 source setup.sh
 ```
 This will make aware the system where are the pandoc templates and let the user call the script from anywhere.
+
+For an automatic setup, the user can use the following lines in `~/.bashrc` file:
+```
+export PANDOC_TEMPLATES=<installation-dir>/pandoc-templates/templates
+export PANDOC_SCRIPTS=<installation-dir>/pandoc-templates/scripts
+PATH=$PATH:${PANDOC_SCRIPTS}
+```
+where `<installation-dir>` is the directory where pandoc-templates is installed.
+
+## Usage
+
+The conversion can be done using three executable scripts with predefined setup:
+```
+makeArticle notes.md article.pdf
+makeBook notes.md book.pdf
+makeWebpage notes.md blogpost.html
+makeSlides notes.md slides.pdf
+```
 
 ## Run the examples
 
