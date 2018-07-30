@@ -14,9 +14,9 @@ This will make aware the system where are the pandoc templates and let the user 
 ## Run the examples
 
 There are two available example that can be ran in the `example` directory. 
-One is based on some notes I took during a conference ([article](), [slides](), [html]()),
-and the other is based on the notebooks produce with (jupyter notebook)[] and exported
-in markdown via `nbconvert` ([article](), [html]()).
+One is based on some notes I took during a conference ([article](examples/NoteSUSY2018/Article.pdf), [slides](examples/NoteSUSY2018/Slides.pdf), [html](examples/NoteSUSY2018/Webpage.htm)),
+and the other is based on the notebooks produce with [jupyter notebook](http://jupyter.org/) and exported
+in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pdf), [html](examples/BookRandomTopics/RandomTopics.html)).
 
 ## To-do-list
 
