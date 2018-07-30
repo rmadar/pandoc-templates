@@ -50,6 +50,12 @@ makeSlides notes.md slides.pdf
 
 The structure for the slides is the following
 ```
+---
+title: "My beautiful presentation"
+author: ["Romain Madar"]
+date: July 2018
+...
+
 # First section
 
 ## My first slide of the first section
@@ -80,6 +86,24 @@ various slides thanks to the attribute '.allowframebreaks'
 This second slide can be very long, it will be splitted among
 various slides thanks to the attribute '.allowframebreaks'
 
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
 # Very poor second section
 
 ## Conclusion and outlooks
@@ -92,10 +116,10 @@ This text will appear only in the article/book/webpage but not in the beamer sli
 This could be useful to give additional details which don't fit a presentation but
 a more complete document.
 </div>
-
-
-
 ```
+
+The output slides can be found [here](examples/SimpleSlides/slides.pdf) and the corresponding article
+with more details in the conclusion is [here](examples/SimpleSlides/article.pdf).
 
 
 ### Webpage
