@@ -20,7 +20,6 @@ where `<installation-dir>` is the directory where pandoc-templates is installed.
 
 ## Usage
 
-The conversion can be done using three executable scripts with predefined setup.
 
 ### Latex article
 
@@ -29,12 +28,12 @@ makeArticle notes.md article.pdf
 ```
 
 Title, author and abstract are specifed using the markdown file header. The table of contents is added by default
-but this can be modified in `makeArticle`
+but this can be modified in `makeArticle`. The latex template `templates/document_template.tex` can be tuned/improved.
 
 
 ### Latex book
 
-The same options are available then for the article (execpt the abstract):
+The same options are available then for the article (except the abstract).
 
 ```
 makeBook notes.md book.pdf
@@ -42,11 +41,62 @@ makeBook notes.md book.pdf
 
 ### Latex slides
 
-
+The beamer slide conversion uses another template `templates/beamer_template.tex` and the script `makeSlides`
+contains a list of default option that can be simply changed.
 
 ```
 makeSlides notes.md slides.pdf
 ```
+
+The structure for the slides is the following
+```
+# First section
+
+## My first slide of the first section
+
+This is the content of the slide called 'My first slide of the first section'.
+
+---
+
+This will be a second slide in section 'First section', without title.
+
+
+## My second slide {.allowframebreaks}
+
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+This second slide can be very long, it will be splitted among
+various slides thanks to the attribute '.allowframebreaks'
+
+# Very poor second section
+
+## Conclusion and outlooks
+
+pandoc is great to actually create article, webpage and slides from the
+same markdown file.
+
+<div class="notes">
+This text will appear only in the article/book/webpage but not in the beamer slides.
+This could be useful to give additional details which don't fit a presentation but
+a more complete document.
+</div>
+
+
+
+```
+
 
 ### Webpage
 
