@@ -3,7 +3,7 @@
 if [ $# -ne 2 ]; then
     echo ""
     echo "Script usage: "
-    echo "   ./makeArticle.sh <input.md> <output.pdf>"
+    echo "   makeArticle <input.md> <output.pdf>"
     echo ""
     exit 1
 fi
