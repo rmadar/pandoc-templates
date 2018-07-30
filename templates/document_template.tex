@@ -207,6 +207,9 @@ $endif$
 
 $if(graphics)$
 \usepackage{graphicx,grffile}
+$if(graphicpath)$
+\graphicspath{{$graphicpath$}}
+$endif$
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -216,6 +219,7 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=$if(figwidth)$$figwidth$$else$\maxwidth$endif$,height=\maxheight,keepaspectratio}
 $endif$
+
 
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
@@ -288,7 +292,6 @@ $endfor$
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=greyborder,skipabove=\parskip]{blockquote}
 \renewenvironment{quote}{\begin{blockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
   \item\relax\color{greytext}\ignorespaces}{\unskip\unskip\endlist\end{blockquote}}
-
 
 
 \begin{document}
