@@ -137,6 +137,8 @@ with more details in the conclusion is [here](examples/SimpleSlides/article.pdf)
 
 ### Webpage
 
+A webpage can be created using a customized css file `template/webstyle_template.css` and possible
+a html file template (not yet created) with a given structure.
 ```
 makeWebpage notes.md blogpost.html
 ```
