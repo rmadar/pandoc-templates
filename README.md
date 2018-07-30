@@ -10,7 +10,6 @@ First the user need to setup the proper environemental variables by doing:
 source setup.sh
 ```
 This will make aware the system where are the pandoc templates and let the user call the script from anywhere.
-
 For an automatic setup, the user can use the following lines in `~/.bashrc` file:
 ```
 export PANDOC_TEMPLATES=<installation-dir>/pandoc-templates/templates
@@ -21,13 +20,40 @@ where `<installation-dir>` is the directory where pandoc-templates is installed.
 
 ## Usage
 
-The conversion can be done using three executable scripts with predefined setup:
+The conversion can be done using three executable scripts with predefined setup.
+
+### Latex article
+
 ```
 makeArticle notes.md article.pdf
+```
+
+Title, author and abstract are specifed using the markdown file header. The table of contents is added by default
+but this can be modified in `makeArticle`
+
+
+### Latex book
+
+The same options are available then for the article (execpt the abstract):
+
+```
 makeBook notes.md book.pdf
-makeWebpage notes.md blogpost.html
+```
+
+### Latex slides
+
+
+
+```
 makeSlides notes.md slides.pdf
 ```
+
+### Webpage
+
+```
+makeWebpage notes.md blogpost.html
+```
+
 
 ## Run the examples
 
