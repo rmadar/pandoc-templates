@@ -318,15 +318,18 @@ $if(toc)$
   \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$toc-links$endif$}
   \setcounter{tocdepth}{$toc-depth$}
   \tableofcontents
+  \newpage
 }
 $endif$
 
 $if(lot)$
 \listoftables
+\newpage
 $endif$
 
 $if(lof)$
 \listoffigures
+\newpage
 $endif$
 
 $body$
