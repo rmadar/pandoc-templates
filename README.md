@@ -12,8 +12,8 @@ source setup.sh
 This will make aware the system where are the pandoc templates and let the user call the script from anywhere.
 For an automatic setup, the user can use the following lines in `~/.bashrc` file:
 ```
-export PANDOC_TEMPLATES=<installation-dir>/pandoc-templates/templates
-export PANDOC_SCRIPTS=<installation-dir>/pandoc-templates/scripts
+export PANDOC_TEMPLATES=<installation-dir>/pandoc-utils/templates
+export PANDOC_SCRIPTS=<installation-dir>/pandoc-utils/scripts
 PATH=$PATH:${PANDOC_SCRIPTS}
 ```
 where `<installation-dir>` is the directory where pandoc-templates is installed.
