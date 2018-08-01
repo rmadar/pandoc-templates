@@ -150,14 +150,31 @@ There are two available example that can be ran in the `example` directory.
 One is based on some notes I took during a conference ([article](examples/NoteSUSY2018/Article.pdf), [slides](examples/NoteSUSY2018/Slides.pdf), [html](examples/NoteSUSY2018/Webpage.htm)),
 and the other is based on the notebooks produce with [jupyter notebook](http://jupyter.org/) and exported
 in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pdf), [html](examples/BookRandomTopics/RandomTopics.html)).
+[Another example](examples/ActivityReport) shows with bibliography in both pdf and html.
 
 ## To-do-list
 
 It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
 order to properly perform the tasks below (and possibly many more).
 
+### Bibliography
+
+- [ ] adjust the bibliography style
+- [ ] enable bibliography counting - if possible?
+
+
+### Beamer template
+
 - [ ] add logos on beamer presentations
-- [ ] tune title page for LaTeX books
-- [ ] modify latex template to remove horizontal line (so that slide transition don't appear in article.pdf)
 - [ ] define a block appearing only on slides and not in the article 
 (equivalent to `<div class="note">` but for slides only)
+
+### Latex template
+
+- [ ] tune title page for LaTeX books
+- [ ] modify latex template to remove horizontal line (so that slide transition don't appear in article.pdf)
+
+
+### HTML/css templates
+
+- [ ] center subtitle  

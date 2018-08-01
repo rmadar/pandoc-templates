@@ -5,7 +5,7 @@ subtitle: "Décembre 2015 — Juin 2018"
 
 # Curriculum vitæ
 
- - *État civil:* MADAR Romain, né le 01/09/1983, PACSÉ, 1 enfant.
+ - *État civil:* MADAR Romain
  - *email:* [romain.madar@cern.ch](mailto:romain.madar@cern.ch)
  - *web:* [romain-madar.com](http://romain-madar.com) -- [twitter](https://twitter.com/RomainMadar) -- [linkedin](https://fr.linkedin.com/in/romainmadar/en) -- [github](https://github.com/rmadar)
  
