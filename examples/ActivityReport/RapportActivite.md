@@ -79,7 +79,7 @@ Enfin, la sensibilité a la production stantard $t\bar{t}t\bar{t}$ de cette anal
 
 ### Focus sur la production standard $\boldsymbol{t\bar{t}t\bar{t}}$ avec toutes les données Run 2
 
-Depuis le début de l'année 2018, un nouveau groupe d'analyse est formé visant spécifiquement la première mise en évidence de la production standard $t\bar{t}t\bar{t}$, qui devrait être possible avec l'ensemble des données du Run 2. Ce nouveau projet d'analyse, dont je suis le co-coordinateur, regroupe tous les cannaux pertinents et sera fortement optimisé pour observer ce processus (au contraire de l'analyse dite *exotique* mentionée à la [section précédente](#BSM) qui visait un grande variété de signatures BSM).
+Depuis le début de l'année 2018, un nouveau groupe d'analyse est formé visant spécifiquement la première mise en évidence de la production standard $t\bar{t}t\bar{t}$, qui devrait être possible avec l'ensemble des données du Run 2. Ce nouveau projet d'analyse, dont je suis le co-coordinateur, regroupe tous les cannaux pertinents et sera fortement optimisé pour observer ce processus (au contraire de l'analyse dite *exotique* mentionée à la [Recherche de phénomènes nouveaux] qui visait un grande variété de signatures BSM).
 
 
 ## Développement de détecteur
