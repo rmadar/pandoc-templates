@@ -159,8 +159,8 @@ order to properly perform the tasks below (and possibly many more).
 
 ### Bibliography
 
-- [ ] adjust the bibliography style
-- [ ] enable bibliography counting - if possible?
+- [x] adjust the bibliography style
+- [x] enable bibliography counting - if possible?
 
 
 ### Beamer template
@@ -177,4 +177,4 @@ order to properly perform the tasks below (and possibly many more).
 
 ### HTML/css templates
 
-- [ ] center subtitle  
+- [x] center subtitle  
