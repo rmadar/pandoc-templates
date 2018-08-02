@@ -294,6 +294,13 @@ $endfor$
 \begin{document}
 
 
+% Redefine list style as english default (no matter the default language)
+\renewcommand{\labelitemi}{\textbullet}
+\renewcommand{\labelitemii}\textendash{}
+\renewcommand{\labelitemiii}{\textasteriskcentered}
+\renewcommand{\labelitemiii}{\textperiodcentered}
+
+
 $if(title)$
 \maketitle
 $endif$
