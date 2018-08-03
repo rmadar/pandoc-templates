@@ -103,10 +103,10 @@ Un autre point important de ce projet que j'ai développé, est d'avoir un code 
 **Test en faisceau et analyses correspondantes**\
 Plusieurs tests en faisceaux ont été effectués au CERN. Un tournant du projet s'est produit lors d'un test de 2017 où des problèmes d'intégration bloquant ont été identifiés et résolus par la suite en laboratoire grâce à l'arrivé d'un ingénieur expert en firmeware, Alexandre Soulier. En juin 2017, le système était assez stable pour enregistrer des données de qualités et les premiers dépôts d'énergie reconstruits avec FATALIC ont été observés, ce qui a été la première démonstration que FATALIC4b fonctionnait très bien pour les signaux de physique.
 
-**Dernier prototype FATALIC5**
+**Dernier prototype FATALIC5**\
 L'élaboration de FATALIC5 a commencée fin 2016 avec l'objectif principale d'avoir une voix de lecture pour l'étalonnage bien plus précise que les ASIC précédent. Cette contrainte a nécessité de repenser assez profondément la structure de l'ASIC et de faire des compromis sur les performences d'autres fonctionalités. Ce travail a nécessité plusieurs itérations de simulations pour choisir le meilleur compromis, mais églament une clarification des contraintes imposées par la physique de ce détecteur. Sachant que la sélection finale de l'électronique frontale étaient prévue en Juillet 2017, lancer une fonderie en Février avec des modifications majeures représentait un gros facteur de risque mais également une nécessité.
     
-**Mesures finales et decisions de la collaboration**
+**Mesures finales et decisions de la collaboration**\
 Les mesures effecutés en laboratoire sur FATALIC5 (juillet 2017) ont montré une précision amélioré d'un ordre de grandeur mais toujours d'un facteur 5 au dessus des spécifications, et des résultats de simulation pré-fonderie. Un des effets importants n'était en fait que partiellement pris en compte dans la simulation; une fois corrigée, la simulation étaient en accord avec les mesures. Quelques filtres évolués ont été testés (collaboration avec des collègues bréziliens) pour gagner le facteur 5 manquant. Même si les résultats étaient prometteurs, le temps à manquer pour finaliser cette approche. Par ailleurs, une des options concurrente à démontré une précision meilleure que les spécification par deux ordres de grandeur. Sachant que cette précision intervient aussi dans la mesure de la luminosité, il a été décidé de sélectionner cette option.
 
 ### La préparation de la production
