@@ -10,6 +10,11 @@ if [ $# -ne 2 ]; then
 
 # Beamer slides
 pandoc -N -s ${1} -o ${2} --to beamer --template ${PANDOC_TEMPLATES}/slides_template.tex --slide-level=2 \
-       -V theme="CambridgeUS" -V colortheme="seagull" -V fonttheme="structurebold" -V fontfamily="libertine" \
+       --listings --highlight-style kate\
+       -V theme="CambridgeUS" -V colortheme="seagull" -V fonttheme="structurebold"\
        -V colorlinks\
        -V toc\
+       -V fontsize="10pt"\
+       -V fontfamily="libertine"
+
+ 
