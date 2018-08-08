@@ -31,6 +31,7 @@ pdflatex temp_clean.tex >& log
 pdflatex temp_clean.tex >& log
 rm -f temp_clean.aux temp_clean.tex temp_clean.out\
       temp_clean.log tmp.md tmp.tex log\
-      temp_clean.toc
+      temp_clean.toc temp_clean.nav temp_clean.snm\
+      temp_clean.vrb
 
 mv temp_clean.pdf ${2}
