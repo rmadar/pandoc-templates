@@ -180,6 +180,9 @@ order to properly perform the tasks below (and possibly many more).
 
 - [x] center subtitle  
 
+
 ### Using jupyter notebook
 
-- [ ] follow up with pandoc team for the verbatim issue (right now solved by hand, and incompatible with references)
+- [ ] can we find a cleaner way to remove the environment verbatim in pandoc (instead of [manual_remove_verbatim.py](filters/manual_remove_verbatim.py acting on the `tex` file)?
+- [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
+- [ ] investigate/test html and tune the css file for the notebook
