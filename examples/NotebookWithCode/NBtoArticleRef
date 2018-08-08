@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo ""
+    echo "Script usage: "
+    echo "   NBtoArticle <input.ipynb> <output.pdf>"
+    echo ""
+    exit 1
+fi
+
+# Notebook -> markdown
+jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl --stdout > tmp.md
+
+# Markdown -> latex
+echo "Converting MD into latex"
+pandoc -N -s tmp.md -o tmp.tex --template ${PANDOC_TEMPLATES}/document_template.tex \
+       --bibliography biblio.bib --filter pandoc-citeproc --csl ${PANDOC_TEMPLATES}/biblio_style.csl --metadata link-citations=true\
+       --filter ${PANDOC_FILTERS}/pandoc_latex_environment.py\
+       --variable geometry="a4paper, total={6in,9in}"\
+       -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
+       --listings --highlight-style kate\
+       --toc\
+       -V notebook
+
+# Filtering of latex file
+echo "Cleaning latex"
+python ${PANDOC_FILTERS}/manual_remove_verbatim.py -i tmp.tex -o temp_clean.tex
+
+# latex -> pdf
+echo "Compiling"
+pdflatex temp_clean.tex >& log
+pdflatex temp_clean.tex >& log
+rm -f temp_clean.aux temp_clean.tex temp_clean.out\
+      temp_clean.log tmp.md tmp.tex log\
+      temp_clean.toc temp_clean.nav temp_clean.snm\
+      temp_clean.vrb
+
+mv temp_clean.pdf ${2}
