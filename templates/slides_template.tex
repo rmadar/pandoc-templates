@@ -157,14 +157,11 @@ $endif$
 
 
 
-$if(listings)$
-%\usepackage{listings}
-%\newcommand{\passthrough}[1]{#1}
 
 \usepackage{listings}
 
 \definecolor{listing-background}{RGB}{250,250,250}
-\definecolor{listing-rule}{RGB}{170, 170, 170}
+\definecolor{listing-rule}{RGB}{130, 130, 130}
 \definecolor{listing-numbers}{RGB}{179,178,179}
 \definecolor{listing-text-color}{RGB}{0,0,0}
 \definecolor{listing-keyword}{RGB}{170,0,0}
@@ -173,27 +170,19 @@ $if(listings)$
 \definecolor{listing-comment}{RGB}{142,142,142}
 \definecolor{listing-javadoc-comment}{RGB}{0, 108, 169}
 
-
-%% Note: not yet clear how to perfectly personalize the synthaxe
-%% For e.g.: the additional key word 'as' should be coloured and
-%% it's note. The doc string should be with a different colour
-%% but it's not too.
-
-\lstdefinestyle{my_listing_style}{
+\lstdefinestyle{my_input_style}{
   language         = python,
   numbers          = left,
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\ttfamily{}\tiny, % print whole listing small
-  xleftmargin      = 10em,
+  basicstyle       = \color{listing-text-color}\tiny\ttfamily{}\linespread{1.15}, % print whole listing small
+  xleftmargin      = 2.7em,
   breaklines       = true,
-  frame            = leftline,
-  framesep         = 2.0mm,
+  frame            = topline,
+  framerule        = 3pt,
+  framesep         = 1.0mm,
   rulecolor        = \color{listing-rule},
   frameround       = tttt,
-  framerule        = 3pt,
-  framextopmargin  = 2.5em,
   framexleftmargin = 2.5em,
-  linewidth        = 10cm,
   tabsize          = 4,
   numberstyle      = \color{listing-numbers},
   aboveskip        = 1.0em,
@@ -223,10 +212,68 @@ $if(listings)$
   {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
   {”}{{''}}1
 }
+\lstset{style=my_input_style}
 
-\lstset{basicstyle=\tiny,style=my_listing_style}
+$if(notebook)$
+\lstdefinestyle{my_output_style}{
+  language         = python,
+  numbers          = none,
+  backgroundcolor  = \color{white},
+  basicstyle       = \color{listing-text-color}\tiny,
+  xleftmargin      = 5em,
+  breaklines       = true,
+  frame            = leftline,
+  framesep         = 1.0mm,
+  framerule        = 0pt,
+  framexleftmargin = 2.5em,
+  tabsize          = 4,
+  numberstyle      = \color{listing-numbers},
+  aboveskip        = 1.0em,
+  sensitive        = true,
+  keywordstyle     = \color{listing-text-color},
+  identifierstyle  = \color{listing-text-color},
+  commentstyle     = \color{listing-text-color},
+  morecomment      = [s][\color{listing-text-color}]{'''}{'''},
+  stringstyle      = \color{listing-text-color},
+  showstringspaces = false,
+  escapeinside     = {/*@}{@*/}, % Allow LaTeX inside these special comments
+  literate         =
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+  {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
+  {”}{{''}}1
+}
 
+%% Adaptation to input/output cell from jupyter notebook
+%% based on a modified markdown.tpl markdown.tpl of nbviewer
+%% and based on pandoc filter to create latex environment
+\lstnewenvironment{input_code}{
+  %\texttt{INPUT}
+  \lstset{style=my_input_style}
+}{}
+
+\lstnewenvironment{output_code}{
+  %\texttt{OUTPUT}
+  \lstset{style=my_output_style}
+}{}
+
+$else$
+\newenvironment{input_code}{}{}
+\newenvironment{output_code}{}{}
 $endif$
+
+
+
 
 
 $if(lhs)$

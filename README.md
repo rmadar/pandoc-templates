@@ -14,6 +14,7 @@ For an automatic setup, the user can use the following lines in `~/.bashrc` file
 ```
 export PANDOC_TEMPLATES=<installation-dir>/pandoc-utils/templates
 export PANDOC_SCRIPTS=<installation-dir>/pandoc-utils/scripts
+export PANDOC_SCRIPTS=<installation-dir>/pandoc-utils/filters
 PATH=$PATH:${PANDOC_SCRIPTS}
 ```
 where `<installation-dir>` is the directory where pandoc-templates is installed.
@@ -178,3 +179,7 @@ order to properly perform the tasks below (and possibly many more).
 ### HTML/css templates
 
 - [x] center subtitle  
+
+### Using jupyter notebook
+
+- [ ] follow up with pandoc team for the verbatim issue (right now solved by hand, and incompatible with references)

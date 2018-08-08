@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo ""
+    echo "Script usage: "
+    echo "   NBtoArticle <input.ipynb> <output>"
+    echo ""
+    exit 1
+fi
+
+# Notebook -> markdown
+jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl --stdout > `pwd`/tmp.md
+
+# Markdown -> latex
+echo "Converting MD into latex"
+pandoc -N -s `pwd`/tmp.md --to beamer -o `pwd`/tmp.tex --template ${PANDOC_TEMPLATES}/slides_template.tex \
+       --filter ${PANDOC_FILTERS}/pandoc_latex_environment.py\
+       --listings --highlight-style kate\
+       -V theme="CambridgeUS" -V colortheme="seagull" -V fonttheme="structurebold"\
+       -V colorlinks\
+       -V toc\
+       -V fontsize="10pt"\
+       -V fontfamily="libertine"\
+       -V notebook
+
+# Filtering of latex file
+echo "Cleaning latex"
+python ${PANDOC_FILTERS}/manual_remove_verbatim.py -i `pwd`/tmp.tex -o `pwd`/${2}.tex
+
+# latex -> pdf
+echo "Compiling"
+pdflatex `pwd`/${2}.tex >& log
+pdflatex `pwd`/${2}.tex >& log
+rm -f `pwd`/${2}.aux `pwd`/${2}.tex `pwd`/${2}.out\
+      `pwd`/${2}.log `pwd`/tmp.md `pwd`/tmp.tex log\
+      `pwd`/${2}.toc
