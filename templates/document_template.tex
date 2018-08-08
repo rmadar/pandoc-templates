@@ -122,12 +122,11 @@ $endif$
 
 
 
-
 \usepackage{listings}
 
-\definecolor{listing-background}{RGB}{250,250,250}
-\definecolor{listing-rule}{RGB}{130, 130, 130}
-\definecolor{listing-numbers}{RGB}{179,178,179}
+\definecolor{listing-background}{RGB}{240,240,240}
+\definecolor{listing-rule}{RGB}{195, 195, 195}
+\definecolor{listing-numbers}{RGB}{195,195,195}
 \definecolor{listing-text-color}{RGB}{0,0,0}
 \definecolor{listing-keyword}{RGB}{170,0,0}
 \definecolor{listing-identifier}{RGB}{90,120,220}
@@ -139,21 +138,24 @@ $endif$
   language         = python,
   numbers          = left,
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\footnotesize\ttfamily{}\linespread{1.15}, % print whole listing small
-  xleftmargin      = 2.7em,
+  basicstyle       = \color{listing-text-color}\ttfamily{}\scriptsize,
+  xleftmargin      = 0.1\textwidth,
   breaklines       = true,
-  frame            = topline,
-  framerule        = 3pt,
+  frame            = lines,
+  framerule        = 1.5pt,
   framesep         = 1.0mm,
   rulecolor        = \color{listing-rule},
   frameround       = tttt,
-  framexleftmargin = 2.5em,
+  framexleftmargin = 3.5em,
+  framextopmargin  = 0.5em,
+  framexbottommargin = 0.5em,
   tabsize          = 4,
-  numberstyle      = \color{listing-numbers},
+  numberstyle      = \color{listing-rule},
   aboveskip        = 1.0em,
   morekeywords     = {as},
   keywordstyle     = \color{listing-keyword},
   classoffset      = 0,
+  linewidth        = 0.9\textwidth,
   sensitive        = true,
   identifierstyle  = \color{listing-identifier},
   commentstyle     = \color{listing-comment},
@@ -184,8 +186,8 @@ $if(notebook)$
   language         = python,
   numbers          = none,
   backgroundcolor  = \color{white},
-  basicstyle       = \color{listing-text-color}\footnotesize,
-  xleftmargin      = 5em,
+  basicstyle       = \color{listing-text-color}\ttfamily{}\scriptsize,
+  xleftmargin      = 0.1\textwidth,
   breaklines       = true,
   frame            = leftline,
   framesep         = 1.0mm,
@@ -193,7 +195,8 @@ $if(notebook)$
   framexleftmargin = 2.5em,
   tabsize          = 4,
   numberstyle      = \color{listing-numbers},
-  aboveskip        = 1.0em,
+  aboveskip        = 0.0em,
+  linewidth        = 0.9\textwidth,
   sensitive        = true,
   keywordstyle     = \color{listing-text-color},
   identifierstyle  = \color{listing-text-color},
@@ -223,12 +226,10 @@ $if(notebook)$
 %% based on a modified markdown.tpl markdown.tpl of nbviewer
 %% and based on pandoc filter to create latex environment
 \lstnewenvironment{input_code}{
-  \texttt{INPUT}
   \lstset{style=my_input_style}
 }{}
 
 \lstnewenvironment{output_code}{
-  \texttt{OUTPUT}
   \lstset{style=my_output_style}
 }{}
 
