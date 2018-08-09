@@ -24,3 +24,18 @@
 {{ output.text }}```
 </div>
 {% endblock stream %}
+
+
+{% block execute_result scoped %}
+ {%- for type in output.data | filter_data_type -%}
+  {%- if type in ['text/plain'] %}
+   <div class="output_code">
+   ```
+   {{ output.data['text/plain'] | escape_latex }}
+   ```
+   </div>
+   {% else %}
+    {{ super() }}
+  {% endif %}
+{%- endfor -%}
+{% endblock execute_result %}

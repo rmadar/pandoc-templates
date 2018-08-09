@@ -9,11 +9,16 @@ if [ $# -ne 2 ]; then
 fi
 
 # Notebook -> markdown
-jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl --stdout > tmp.md
+jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl
+
+# Get the name wihtout the extension
+FILE=${1}
+raw_name="${FILE%%.*}"
+mv ${raw_name}.md tmp.md
 
 # Markdown -> latex
 echo "Converting MD into latex"
-pandoc -N -s tmp.md -o tmp.tex --template ${PANDOC_TEMPLATES}/document_template.tex \
+pandoc -N -s ${PANDOC_TEMPLATES}/nb_code_env.yaml tmp.md -o tmp.tex --template ${PANDOC_TEMPLATES}/document_template.tex \
        --filter ${PANDOC_FILTERS}/pandoc_latex_environment.py\
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
@@ -32,6 +37,8 @@ pdflatex temp_clean.tex >& log
 rm -f temp_clean.aux temp_clean.tex temp_clean.out\
       temp_clean.log tmp.md tmp.tex log\
       temp_clean.toc temp_clean.nav temp_clean.snm\
-      temp_clean.vrb
+      temp_clean.vrb ${raw_name}.md
+
+rm -rf ${raw_name}_files
 
 mv temp_clean.pdf ${2}
