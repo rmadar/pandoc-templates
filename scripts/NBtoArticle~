@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo ""
+    echo "Script usage: "
+    echo "   NBtoArticle <input.ipynb> <output>"
+    echo ""
+    exit 1
+fi
+
+# Notebook -> markdown
+jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl --stdout > tmp.md
+
+# Markdown -> latex
+pandoc -N -s tmp.md -o tmp.tex --template ${PANDOC_TEMPLATES}/document_template.tex \
+       --filter ${PANDOC_FILTERS}/
+       --variable geometry="a4paper, total={6in,9in}"\
+       -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
+       --listings --highlight-style kate\
+       --toc --V notebook
+
+# Filtering of latex file
+python ${PANDOC_FILTERS}/manual_remove_verbatim.py -i tmp.tex -o ${2}.tex
+
+# latex -> pdf
+pdflatex ${2}.tex
+rm -f ${2}.aux {2}.tex {2}.out {2}.log

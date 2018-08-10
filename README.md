@@ -49,89 +49,6 @@ contains a list of default option that can be simply changed.
 makeSlides notes.md slides.pdf
 ```
 
-The structure for the slides is the following
-```
----
-title: "My beautiful presentation"
-author: ["Romain Madar"]
-date: July 2018
-...
-
-# First section
-
-## My first slide of the first section
-
-This is the content of the slide called 'My first slide of the first section'.
-
----
-
-This will be a second slide in section 'First section', without title.
-
-
-## My second slide {.allowframebreaks}
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-This second slide can be very long, it will be splitted among
-various slides thanks to the attribute '.allowframebreaks'
-
-# Very poor second section
-
-## Conclusion and outlooks
-
-pandoc is great to actually create article, webpage and slides from the
-same markdown file.
-
-<div class="notes">
-This text will appear only in the article/book/webpage but not in the beamer slides.
-This could be useful to give additional details which don't fit a presentation but
-a more complete document.
-</div>
-```
-
 The output slides can be found [here](examples/SimpleSlides/slides.pdf) and the corresponding article
 with more details in the conclusion is [here](examples/SimpleSlides/article.pdf).
 
@@ -153,7 +70,20 @@ and the other is based on the notebooks produce with [jupyter notebook](http://j
 in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pdf), [html](examples/BookRandomTopics/RandomTopics.html)).
 [Another example](examples/ActivityReport) shows with bibliography in both pdf and html.
 
-## To-do-list
+
+
+## Technical comments
+
+## Dependencies
+
+- [fvextra](https://ctan.org/pkg/fvextra?lang=en) latex package, to be installed with miktex as
+```
+sudo cp fvextra /usr/share/texlive/texmf-dist/tex/latex/.
+sudo mktexlsr
+```
+
+
+### To-do list
 
 It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
 order to properly perform the tasks below (and possibly many more).
@@ -186,3 +116,5 @@ order to properly perform the tasks below (and possibly many more).
 - [ ] can we find a cleaner way to remove the environment verbatim in pandoc (instead of [manual_remove_verbatim.py](filters/manual_remove_verbatim.py acting on the `tex` file)?
 - [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
 - [ ] investigate/test html and tune the css file for the notebook
+- [ ] check the exported figure with pdf format and how to add caption (for ouput of codes)
+- [ ] pandas dataframe output as markdown, not html (check [pytablewriter](https://github.com/thombashi/pytablewriter) or []())

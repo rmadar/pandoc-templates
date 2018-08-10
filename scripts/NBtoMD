@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+if [ $# -ne 1 ]; then
+    echo ""
+    echo "Script usage: "
+    echo "   NBtoMD <input.ipynb>"
+    echo ""
+    exit 1
+fi
+
+# Notebook -> markdown
+jupyter-nbconvert --to markdown ${1} --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl

@@ -12,7 +12,7 @@ fi
 pandoc -N -s ${1} -o ${2} --template ${PANDOC_TEMPLATES}/document_template.tex \
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
-       --listings --highlight-style kate\
+       --highlight-style tango\
        --toc
 
 ## Other nice font combination
