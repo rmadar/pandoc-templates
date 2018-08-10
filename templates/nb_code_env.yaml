@@ -1,5 +1,0 @@
----
-pandoc-latex-environment:
-  output_code: [output_code]
-  input_code: [input_code]
-...
