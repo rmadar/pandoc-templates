@@ -159,6 +159,15 @@ $endif$
 \setkeys{Gin}{width=$if(figwidth)$$figwidth$$else$\maxwidth$endif$,height=\maxheight,keepaspectratio}
 $endif$
 
+\usepackage{float}
+\let\origfigure=\figure
+\let\endorigfigure=\endfigure
+\renewenvironment{figure}[1][]{%
+  \origfigure[H]
+}{%
+  \endorigfigure
+}
+
 
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
