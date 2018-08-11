@@ -125,4 +125,5 @@ order to properly perform the tasks below (and possibly many more).
    quite manual for now but it works, except for the NB visualisation online
    + main issue: *data caching* for `png`, worked around by creating a new `png` each time
    + but visualization needs the last `png` version (which always changes): how to solve these issues?
+   + find a way to replace in `output.md` figure extension `png` by `pdf` when the pdf exist
 - [x] pandas dataframe output as markdown, not html (check [tabulate](https://pypi.org/project/tabulate/))
