@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Romain Madar" />
+  <title>Jupyter notebook custom conversion</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/home/rmadar/Documents/work/pandoc-utils/templates/webstyle_template.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Jupyter notebook custom conversion</h1>
+<p class="author">Romain Madar</p>
+<p class="date">August 2018</p>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#nbconvert-latex-test"><span class="toc-section-number">1</span> nbconvert latex test</a></li>
+<li><a href="#printing-using-python"><span class="toc-section-number">2</span> Printing using python</a></li>
+<li><a href="#pyout-and-text-wrapping"><span class="toc-section-number">3</span> Pyout (and Text Wrapping)</a></li>
+<li><a href="#image-and-plots"><span class="toc-section-number">4</span> Image and plots</a><ul>
+<li><a href="#as-plain-text-using-markdown"><span class="toc-section-number">4.1</span> As plain text using markdown</a></li>
+<li><a href="#plots-produced-by-the-code"><span class="toc-section-number">4.2</span> Plots produced by the code</a></li>
+</ul></li>
+<li><a href="#operator-highlighing-check"><span class="toc-section-number">5</span> Operator Highlighing Check</a></li>
+<li><a href="#tables"><span class="toc-section-number">6</span> Tables</a><ul>
+<li><a href="#markdown-as-plain-text"><span class="toc-section-number">6.1</span> Markdown as plain text</a></li>
+<li><a href="#pandas-as-default-and-markdown"><span class="toc-section-number">6.2</span> Pandas as default and Markdown</a></li>
+</ul></li>
+<li><a href="#sympy-output"><span class="toc-section-number">7</span> Sympy output</a></li>
+<li><a href="#line-length"><span class="toc-section-number">8</span> Line Length</a></li>
+</ul>
+</nav>
+<h1 id="nbconvert-latex-test"><span class="header-section-number">1</span> nbconvert latex test</h1>
+<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Nunc luctus bibendum felis dictum sodales. Ut suscipit, orci ut interdum imperdiet, purus ligula mollis <em>justo</em>, non malesuada nisl augue eget lorem. Donec bibendum, erat sit amet porttitor aliquam, urna lorem ornare libero, in vehicula diam diam ut ante. Nam non urna rhoncus, accumsan elit sit amet, mollis tellus. Vestibulum nec tellus metus. Vestibulum tempor, ligula et vehicula rhoncus, sapien turpis faucibus lorem, id dapibus turpis mauris ac orci. Sed volutpat vestibulum venenatis.</p>
+<p>This is a test list:</p>
+<ol type="1">
+<li>item 1
+<ul>
+<li>subitem 1</li>
+<li>subitem 2</li>
+</ul></li>
+<li>item 2</li>
+<li>item 3</li>
+</ol>
+<h1 id="printing-using-python"><span class="header-section-number">2</span> Printing using python</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">next_paragraph <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">Aenean vitae diam consectetur, tempus arcu quis, ultricies urna. Vivamus venenatis sem </span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">quis orci condimentum, sed feugiat dui porta.</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">def</span> identity_dec(ob):</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="cf">return</span> ob</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="at">@identity_dec</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw">def</span> nifty_print(text):</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="co">&quot;&quot;&quot;Used to test syntax highlighting&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    </a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="bu">print</span>(text <span class="op">*</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">nifty_print(next_paragraph)</a></code></pre></div>
+<pre><code>Aenean vitae diam consectetur, tempus arcu quis, ultricies urna. Vivamus venenatis sem 
+quis orci condimentum, sed feugiat dui porta.
+
+Aenean vitae diam consectetur, tempus arcu quis, ultricies urna. Vivamus venenatis sem 
+quis orci condimentum, sed feugiat dui porta.</code></pre>
+<h1 id="pyout-and-text-wrapping"><span class="header-section-number">3</span> Pyout (and Text Wrapping)</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">Text <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">Aliquam blandit aliquet enim, eget scelerisque eros adipiscing quis. Nunc sed metus </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">ut lorem condimentum condimentum nec id enim. Sed malesuada cursus hendrerit. Praesent </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">et commodo justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">Curabitur et magna ante. Proin luctus tellus sit amet egestas laoreet. Sed dapibus </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">neque ac nulla mollis cursus. Fusce mollis egestas libero mattis facilisis.</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">Text <span class="co">#Use print(Text) instead to get text wrapping in pdf</span></a></code></pre></div>
+<pre><code>&#39;\nAliquam blandit aliquet enim, eget scelerisque eros adipiscing quis. Nunc sed metus \nut lorem condimentum condimentum nec id enim. Sed malesuada cursus hendrerit. Praesent \net commodo justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. \nCurabitur et magna ante. Proin luctus tellus sit amet egestas laoreet. Sed dapibus \nneque ac nulla mollis cursus. Fusce mollis egestas libero mattis facilisis.\n&#39;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="bu">print</span>(Text)</a></code></pre></div>
+<pre><code>Aliquam blandit aliquet enim, eget scelerisque eros adipiscing quis. Nunc sed metus 
+ut lorem condimentum condimentum nec id enim. Sed malesuada cursus hendrerit. Praesent 
+et commodo justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+Curabitur et magna ante. Proin luctus tellus sit amet egestas laoreet. Sed dapibus 
+neque ac nulla mollis cursus. Fusce mollis egestas libero mattis facilisis.</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">a <span class="op">=</span> np.random.rand(<span class="dv">10</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="bu">print</span>(a)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">a</a></code></pre></div>
+<pre><code>[[0.64744667 0.57636518 0.92308083 0.11504091 0.14889798 0.97040679
+  0.70388468 0.54002177 0.37008402 0.22467851]
+ [0.51697607 0.31691022 0.84519629 0.14154867 0.35497008 0.15084046
+  0.50688335 0.67993042 0.18273082 0.07984997]
+ [0.85085089 0.11873244 0.30033449 0.54641412 0.82311172 0.86073597
+  0.87178896 0.83388601 0.35274997 0.66044507]
+ [0.96852645 0.74269565 0.26353289 0.54570074 0.69385546 0.66444893
+  0.66926216 0.38622088 0.70712221 0.08701712]
+ [0.49372412 0.05628148 0.47502442 0.66210835 0.65991268 0.37482306
+  0.62422273 0.35865507 0.92692913 0.41553871]
+ [0.68762822 0.27144171 0.34328767 0.55213573 0.6000758  0.67550676
+  0.86156187 0.21786351 0.32769464 0.98356657]
+ [0.68476955 0.94943209 0.22920439 0.12072374 0.04124654 0.6085241
+  0.43001339 0.01491417 0.91422717 0.05937777]
+ [0.75582926 0.21751315 0.81533493 0.58812065 0.21334823 0.45587509
+  0.52656256 0.73150306 0.24616793 0.51882674]
+ [0.09167766 0.29436438 0.94930157 0.45402702 0.54320104 0.5981774
+  0.56577774 0.36765325 0.72958224 0.86144542]
+ [0.92032691 0.47876663 0.6084082  0.55141377 0.59939395 0.57299142
+  0.37665782 0.27552383 0.09787032 0.83750694]]
+
+
+
+
+
+array([[0.64744667, 0.57636518, 0.92308083, 0.11504091, 0.14889798,
+        0.97040679, 0.70388468, 0.54002177, 0.37008402, 0.22467851],
+       [0.51697607, 0.31691022, 0.84519629, 0.14154867, 0.35497008,
+        0.15084046, 0.50688335, 0.67993042, 0.18273082, 0.07984997],
+       [0.85085089, 0.11873244, 0.30033449, 0.54641412, 0.82311172,
+        0.86073597, 0.87178896, 0.83388601, 0.35274997, 0.66044507],
+       [0.96852645, 0.74269565, 0.26353289, 0.54570074, 0.69385546,
+        0.66444893, 0.66926216, 0.38622088, 0.70712221, 0.08701712],
+       [0.49372412, 0.05628148, 0.47502442, 0.66210835, 0.65991268,
+        0.37482306, 0.62422273, 0.35865507, 0.92692913, 0.41553871],
+       [0.68762822, 0.27144171, 0.34328767, 0.55213573, 0.6000758 ,
+        0.67550676, 0.86156187, 0.21786351, 0.32769464, 0.98356657],
+       [0.68476955, 0.94943209, 0.22920439, 0.12072374, 0.04124654,
+        0.6085241 , 0.43001339, 0.01491417, 0.91422717, 0.05937777],
+       [0.75582926, 0.21751315, 0.81533493, 0.58812065, 0.21334823,
+        0.45587509, 0.52656256, 0.73150306, 0.24616793, 0.51882674],
+       [0.09167766, 0.29436438, 0.94930157, 0.45402702, 0.54320104,
+        0.5981774 , 0.56577774, 0.36765325, 0.72958224, 0.86144542],
+       [0.92032691, 0.47876663, 0.6084082 , 0.55141377, 0.59939395,
+        0.57299142, 0.37665782, 0.27552383, 0.09787032, 0.83750694]])</code></pre>
+<h1 id="image-and-plots"><span class="header-section-number">4</span> Image and plots</h1>
+<h2 id="as-plain-text-using-markdown"><span class="header-section-number">4.1</span> As plain text using markdown</h2>
+<p>Once exported as markdown and converted to latex/pdf with pandoc, the <code>{width=60%}</code> will fix the width of the picture and the <code>My legend</code> will appear as caption:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="al">![My legend](figures/magnetostatics_field.png)</span>{width=50% #figlabel}</a></code></pre></div>
+<p>gives the result showns in <a href="#figlabel">this figure</a>.</p>
+<figure>
+<img src="figures/magnetostatics_field.png" alt="My legend" id="figlabel" style="width:50.0%" /><figcaption>My legend</figcaption>
+</figure>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> Image</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">Image(data<span class="op">=</span><span class="st">&quot;http://ipython.org/_static/IPy_header.png&quot;</span>)</a></code></pre></div>
+<figure>
+<img src="test_files/test_13_0.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<h2 id="plots-produced-by-the-code" class="allowframebreaks"><span class="header-section-number">4.2</span> Plots produced by the code</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">y <span class="op">=</span> np.sin(x)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">3</span>),dpi<span class="op">=</span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">p<span class="op">=</span>plt.plot(x,y)</a></code></pre></div>
+<figure>
+<img src="test_files/test_15_0.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">os.getcwd() </a></code></pre></div>
+<pre><code>&#39;/home/rmadar/Documents/work/temp/pandoc-utils/examples/NotebookWithCode&#39;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">plt.plot(x,y)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">plt.xlabel(<span class="st">&#39;$X_</span><span class="sc">{e}</span><span class="st">$ [SI]&#39;</span>)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">plt.ylabel(<span class="st">&#39;$Y_</span><span class="sc">{UPDATE12}</span><span class="st">$ [SI]&#39;</span>)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">plt.tight_layout()</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">jpu.plt2md(<span class="st">&#39;myplot&#39;</span>,<span class="st">&#39;This is a test of how to get proper&#39;</span><span class="op">+\</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">       <span class="st">&#39;plot from Jupyter notebook in MD,&#39;</span><span class="op">+\</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">       <span class="st">&#39;to be processed using PANDOC&#39;</span>,<span class="st">&#39;100%&#39;</span>)</a></code></pre></div>
+<figure>
+<img src="myplot__n3.png" alt="This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot" style="width:100.0%" /><figcaption>This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
+</figure>
+<p>We can then refer to a given figure using cross-references <a href="#myplot">like this</a>, obtained with:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="ot">[like this](#myplot)</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">plt.plot(np.sqrt(np.<span class="bu">abs</span>(x)),y<span class="op">**</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">plt.xlabel(<span class="st">&#39;$X_</span><span class="sc">{e}</span><span class="st">$ [SI]&#39;</span>)</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">plt.ylabel(<span class="st">&#39;$Y_</span><span class="sc">{OTHER}</span><span class="st">$ [SI]&#39;</span>)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">plt.tight_layout()</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">jpu.plt2md(<span class="st">&#39;myplot2&#39;</span>,<span class="st">&#39;This is another test of how to get proper&#39;</span><span class="op">+\</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">       <span class="st">&#39;plot from Jupyter notebook in MD,&#39;</span><span class="op">+\</span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">       <span class="st">&#39;to be processed using PANDOC&#39;</span>,<span class="st">&#39;50%&#39;</span>)</a></code></pre></div>
+<figure>
+<img src="myplot2__n5.png" alt="This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot2" style="width:50.0%" /><figcaption>This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
+</figure>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">plt.plot(x<span class="op">**</span><span class="dv">3</span>,y)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">plt.plot(x<span class="op">**</span><span class="dv">3</span>,y<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">plt.xlabel(<span class="st">&#39;test&#39;</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">plt.ylabel(<span class="st">&#39;test2&#39;</span>)</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">plt.tight_layout()</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">jpu.plt2md(<span class="st">&#39;myplot3&#39;</span>,<span class="st">&#39;Adding more plot without re-creating a figure: curves cumulates&#39;</span>,<span class="st">&#39;50%&#39;</span>)</a></code></pre></div>
+<figure>
+<img src="myplot3__n4.png" alt="Adding more plot without re-creating a figure: curves cumulates" id="myplot3" style="width:50.0%" /><figcaption>Adding more plot without re-creating a figure: curves cumulates</figcaption>
+</figure>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">plt.plot(x<span class="op">**</span><span class="dv">2</span>,y)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">plt.xlabel(<span class="st">&#39;$X_{\omega} [Hz]$&#39;</span>)</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">plt.ylabel(<span class="st">&#39;$Y_{</span><span class="ch">\\</span><span class="st">varphi}$ [$\hbar$]&#39;</span>)</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">plt.title(<span class="st">&#39;My beautiul plot&#39;</span>)</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">plt.tight_layout()</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">jpu.plt2md(<span class="st">&#39;myplot4&#39;</span>,<span class="st">&#39;More plot with re-creating a figure: only last curve&#39;</span>,<span class="st">&#39;100%&#39;</span>)</a></code></pre></div>
+<figure>
+<img src="myplot4__n4.png" alt="More plot with re-creating a figure: only last curve" id="myplot4" style="width:100.0%" /><figcaption>More plot with re-creating a figure: only last curve</figcaption>
+</figure>
+<h1 id="operator-highlighing-check"><span class="header-section-number">5</span> Operator Highlighing Check</h1>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#This is a comment with an operation x @ y in it.</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">test <span class="op">=</span> <span class="dv">5</span><span class="op">**</span><span class="dv">9</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">-</span> x <span class="op">@</span> y <span class="op">/</span> (<span class="dv">7</span> <span class="op">%</span> <span class="dv">2</span>) <span class="op">+</span> <span class="va">True</span> <span class="op">*</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="bu">print</span>(test)</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">a <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">b <span class="op">=</span> <span class="bu">set</span>([<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">a <span class="op">&amp;</span> b</a></code></pre></div>
+<pre><code>1952904.9236703357
+
+
+
+
+
+{0, 2, 4, 6, 8}</code></pre>
+<h1 id="tables"><span class="header-section-number">6</span> Tables</h1>
+<h2 id="markdown-as-plain-text"><span class="header-section-number">6.1</span> Markdown as plain text</h2>
+<p>First a <em>markdown</em> table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><del>a</del></td>
+<td>b</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>&amp;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pandas-as-default-and-markdown" class="allowframebreaks"><span class="header-section-number">6.2</span> Pandas as default and Markdown</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">df<span class="op">=</span>pd.DataFrame(np.random.randn(<span class="dv">10</span>,<span class="dv">3</span>))</a></code></pre></div>
+<p>Default printing is HTML, so it looks good on the web but it is not well rendered in pdf via ipynb-&gt;MB-&gt;pdf (using nbconvert and pandoc). A special function <code>df2md(df)</code> is included in the <code>jupy_pandoc_utils</code> package to write out a markdown format.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Good in HTML, but not pure markdown</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">df</a></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+0
+</th>
+<th>
+1
+</th>
+<th>
+2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+-0.382791
+</td>
+<td>
+-0.004340
+</td>
+<td>
+1.695997
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+-0.758875
+</td>
+<td>
+-0.370357
+</td>
+<td>
+2.157548
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+-0.554216
+</td>
+<td>
+0.279255
+</td>
+<td>
+0.815516
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1.497926
+</td>
+<td>
+2.012358
+</td>
+<td>
+-0.087838
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+-0.682434
+</td>
+<td>
+0.377868
+</td>
+<td>
+-0.870262
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+-0.084107
+</td>
+<td>
+1.232087
+</td>
+<td>
+0.647429
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+-1.116830
+</td>
+<td>
+1.828608
+</td>
+<td>
+-2.012901
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+-0.075781
+</td>
+<td>
+1.327189
+</td>
+<td>
+-0.951601
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+-1.241108
+</td>
+<td>
+-0.762719
+</td>
+<td>
+0.984073
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+-0.433925
+</td>
+<td>
+0.319959
+</td>
+<td>
+-0.931512
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Good in pure MD</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">jpu.df2md(df)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-0.382791</td>
+<td style="text-align: right;">-0.00434025</td>
+<td style="text-align: right;">1.696</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-0.758875</td>
+<td style="text-align: right;">-0.370357</td>
+<td style="text-align: right;">2.15755</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-0.554216</td>
+<td style="text-align: right;">0.279255</td>
+<td style="text-align: right;">0.815516</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.49793</td>
+<td style="text-align: right;">2.01236</td>
+<td style="text-align: right;">-0.0878384</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-0.682434</td>
+<td style="text-align: right;">0.377868</td>
+<td style="text-align: right;">-0.870262</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">-0.0841065</td>
+<td style="text-align: right;">1.23209</td>
+<td style="text-align: right;">0.647429</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">-1.11683</td>
+<td style="text-align: right;">1.82861</td>
+<td style="text-align: right;">-2.0129</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">-0.0757814</td>
+<td style="text-align: right;">1.32719</td>
+<td style="text-align: right;">-0.951601</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">-1.24111</td>
+<td style="text-align: right;">-0.762719</td>
+<td style="text-align: right;">0.984073</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">-0.433925</td>
+<td style="text-align: right;">0.319959</td>
+<td style="text-align: right;">-0.931512</td>
+</tr>
+</tbody>
+</table>
+<h1 id="sympy-output"><span class="header-section-number">7</span> Sympy output</h1>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="im">import</span> sympy</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="im">from</span> sympy.abc <span class="im">import</span> x, n, m</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">sympy.init_printing()</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">theta <span class="op">=</span> sympy.Symbol(<span class="st">&#39;theta&#39;</span>)</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">phi <span class="op">=</span> sympy.Symbol(<span class="st">&#39;phi&#39;</span>)</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">sympy.simplify(sympy.Ynm(n,m,theta,phi).expand(func<span class="op">=</span><span class="va">True</span>))</a></code></pre></div>
+<p><span class="math display">\[\frac{\sqrt{\frac{\left(2 n + 1\right) \Gamma\left(- m + n + 1\right)}{\Gamma\left(m + n + 1\right)}} e^{i m \phi} P_{n}^{\left(m\right)}\left(\cos{\left (\theta \right )}\right)}{2 \sqrt{\pi}}\]</span></p>
+<p>x + y as plain text.</p>
+<p><span class="math inline">\(\frac{P_{n}^{\left(m\right)}\left(\cos{\left (\theta \right )}\right)}{2 \sqrt{\pi}} \sqrt{\frac{\left(- m + n\right)!}{\left(m + n\right)!} \left(2 n + 1\right)} e^{i m \phi}\)</span></p>
+<h1 id="line-length"><span class="header-section-number">8</span> Line Length</h1>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">30</span> <span class="dv">33</span> <span class="dv">36</span> <span class="dv">39</span> <span class="dv">42</span> <span class="dv">45</span> <span class="dv">48</span> <span class="dv">51</span> <span class="dv">54</span> <span class="dv">57</span> <span class="dv">60</span> <span class="dv">63</span> <span class="dv">66</span> <span class="dv">69</span> <span class="dv">72</span> <span class="dv">75</span> <span class="dv">78</span> <span class="dv">81</span> <span class="dv">84</span> <span class="dv">87</span> <span class="dv">90</span> <span class="dv">93</span> <span class="dv">96</span> <span class="dv">99</span> <span class="dv">103</span></a></code></pre></div>
+<p>File “<ipython-input-19-d93d7d2148ce>”, line 1 1 3 5 7 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90 93 96 99 103 ^ SyntaxError: invalid syntax</p>
+</body>
+</html>
