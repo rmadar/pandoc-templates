@@ -81,7 +81,11 @@ in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pd
 sudo cp fvextra /usr/share/texlive/texmf-dist/tex/latex/.
 sudo mktexlsr
 ```
-
+- [tabulate](https://pypi.org/project/tabulate/) python package needed to properly render 
+pandas dataframe in markdown, to be installed as
+```
+pip install tabulate
+```
 
 ### To-do list
 
@@ -113,8 +117,12 @@ order to properly perform the tasks below (and possibly many more).
 
 ### Using jupyter notebook
 
-- [ ] can we find a cleaner way to remove the environment verbatim in pandoc (instead of [manual_remove_verbatim.py](filters/manual_remove_verbatim.py acting on the `tex` file)?
+- [ ] **OBSOLETE** can we find a cleaner way to remove the environment verbatim in pandoc (instead of [manual_remove_verbatim.py](filters/manual_remove_verbatim.py acting on the `tex` file)?
 - [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
-- [ ] investigate/test html and tune the css file for the notebook
+- [x] investigate/test html and tune the css file for the notebook
 - [ ] check the exported figure with pdf format and how to add caption (for ouput of codes)
-- [ ] pandas dataframe output as markdown, not html (check [pytablewriter](https://github.com/thombashi/pytablewriter) or []())
+   + solution found and implemted in [jupy_pandoc_utils](python_tools/jupy_pandoc_utils.py) 
+   quite manual for now but it works, except for the NB visualisation online
+   + main issue: *data caching* for `png`, worked around by creating a new `png` each time
+   + but visualization needs the last `png` version (which always changes): how to solve these issues?
+- [x] pandas dataframe output as markdown, not html (check [tabulate](https://pypi.org/project/tabulate/))
