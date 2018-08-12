@@ -15,17 +15,15 @@ def plt2md(figlabel,figcaption,figsize):
     if figlabel not in jupy_pandoc_COUNTERS:
         jupy_pandoc_COUNTERS[figlabel]=0
         
-    # Incrementation is needed to see the updated file in jupyter
-    # due to data caching in web browser. To avoid a large amount
-    # of png, the last one only is kept.
     for i in range(0,jupy_pandoc_COUNTERS[figlabel]):
         oldfilename=os.path.join(os.getcwd(),figlabel+'__n'+str(i)+'.png')
         if (os.path.isfile(oldfilename)):
             os.remove(oldfilename)
             
-    figname = figlabel+'__n'+str(jupy_pandoc_COUNTERS[figlabel])+'.png'
+    figname = figlabel+'__jpu_n'+str(jupy_pandoc_COUNTERS[figlabel])+'.png'
     plt.savefig(figname)
     plt.savefig(figlabel+'.pdf')
+    plt.savefig(figlabel+'.png')
     plt.close()
     strMD='![{}]({})'.format(figcaption,figname) \
         +'{' + 'width={} #'.format(figsize) + figlabel + '}'
@@ -34,8 +32,36 @@ def plt2md(figlabel,figcaption,figsize):
     return display(Markdown(strMD))
 
 
-def df2md(df):
+def df2md(df,caption=None):
+    '''
+    Docd string to be written soon
+    '''
+    import copy
+    df2 = copy.copy(df)
+    df2['labels'] = ['**'+str(i)+'**' for i in df.index]
+    rename_dict = {str(k):'**'+str(k)+'**' for k in df2.keys()}
+    df3=df2.rename(index=str, columns=rename_dict)
+    c=df3.columns.tolist()
+    c=c[-1:]+c[:-1]
+    df3=df3[c]
+    output = tabulate(df3, headers='keys',tablefmt='pipe',showindex=False)
+    if caption:
+        output += '\n'
+        output += 'Table: ' + caption
+    return display(Markdown(output))
+
+
+def clean_notebook(name):
     '''
     Doc string to be written
     '''
-    return display( Markdown(tabulate(df, headers='keys',tablefmt='pipe') ))
+    find = ['__jpu_n'+str(i) for i in range(0,1000)]
+    fin=open(name,'r')
+    fout=open(name.replace('.ipynb','_clean.ipynb'),'w')
+    for l in fin:
+        for s in find:
+            if s in l:
+                l=l.replace(s,'')
+        fout.write(l)
+    fin.close()
+    fout.close()

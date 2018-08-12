@@ -86,6 +86,9 @@ pandas dataframe in markdown, to be installed as
 ```
 pip install tabulate
 ```
+- [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref) to be able to label table and figures.
+This can be installed by downloading the executable and put it in `./filters/`
+
 
 ### To-do list
 

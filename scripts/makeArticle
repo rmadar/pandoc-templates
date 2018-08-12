@@ -10,6 +10,8 @@ fi
 
 # PDF via latex
 pandoc -N -s ${1} -o ${2} --template ${PANDOC_TEMPLATES}/document_template.tex \
+       --filter ${PANDOC_FILTERS}/pandoc-crossref\
+       --filter pandoc-citeproc\
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
        --highlight-style tango\
