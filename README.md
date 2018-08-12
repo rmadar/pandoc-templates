@@ -96,6 +96,11 @@ It might be interesting to have a look to [pandoc filter in python](https://gith
 order to properly perform the tasks below (and possibly many more).
 
 
+### Cross-references
+- [ ] `pandoc-crossref` works well but
+  1. there are no hyperlink for table in HTML (while it works in LaTeX)
+  2. there is no counting of figure in HTML (while it works in LaTeX and for Tables in HTML too)
+
 ### Beamer template
 
 - [ ] add logos on beamer presentations
