@@ -95,11 +95,6 @@ This can be installed by downloading the executable and put it in `./filters/`
 It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
 order to properly perform the tasks below (and possibly many more).
 
-### Bibliography
-
-- [x] adjust the bibliography style
-- [x] enable bibliography counting - if possible?
-
 
 ### Beamer template
 
@@ -113,20 +108,14 @@ order to properly perform the tasks below (and possibly many more).
 - [ ] modify latex template to remove horizontal line (so that slide transition don't appear in article.pdf)
 
 
-### HTML/css templates
-
-- [x] center subtitle  
-
-
 ### Using jupyter notebook
 
-- [ ] **OBSOLETE** can we find a cleaner way to remove the environment verbatim in pandoc (instead of [manual_remove_verbatim.py](filters/manual_remove_verbatim.py acting on the `tex` file)?
 - [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
 - [x] investigate/test html and tune the css file for the notebook
 - [ ] check the exported figure with pdf format and how to add caption (for ouput of codes)
-   + solution found and implemted in [jupy_pandoc_utils](python_tools/jupy_pandoc_utils.py) 
-   quite manual for now but it works, except for the NB visualisation online
-   + main issue: *data caching* for `png`, worked around by creating a new `png` each time
-   + but visualization needs the last `png` version (which always changes): how to solve these issues?
-   + find a way to replace in `output.md` figure extension `png` by `pdf` when the pdf exist
+   + [x] solution found and implemted in [jupy_pandoc_utils](python_tools/jupy_pandoc_utils.py) 
+   quite manual for now but it works, except for the NB visualisation online (main
+   issue: *data caching* for `png`, worked around by creating a new `png` each time)
+   + [x] but visualization needs the last `png` version (which always changes): how to solve these issues? Done by a cleaning script
+   + [ ] find a way to replace in `output.md` figure extension `png` by `pdf` when the pdf exist
 - [x] pandas dataframe output as markdown, not html (check [tabulate](https://pypi.org/project/tabulate/))

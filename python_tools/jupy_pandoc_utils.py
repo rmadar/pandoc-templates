@@ -65,3 +65,4 @@ def clean_notebook(name):
         fout.write(l)
     fin.close()
     fout.close()
+    os.rename(name.replace('.ipynb','_clean.ipynb'),name)
