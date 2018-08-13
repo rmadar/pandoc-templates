@@ -50,7 +50,6 @@ def df2md(df,caption=None):
         output += 'Table: ' + caption
     return display(Markdown(output))
 
-
 def clean_notebook(name):
     '''
     Doc string to be written
@@ -66,3 +65,19 @@ def clean_notebook(name):
     fin.close()
     fout.close()
     os.rename(name.replace('.ipynb','_clean.ipynb'),name)
+
+def nb2md(name):
+    os.system('jupyter-nbconvert --to markdown ' + name +
+              ' --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl')
+    outname=name.replace('.ipynb','.md')
+    fin=open(outname,'r')
+    fout=open(outname.replace('.md','_clean.md'),'w')
+    for l in fin:
+        #if '.png' in l: l=l.replace('.png','.pdf')
+        fout.write(l)
+    fin.close()
+    fout.close()
+    os.rename(outname.replace('.md','_clean.md'),outname)
+    
+    print(outname + ' is created')
+    return
