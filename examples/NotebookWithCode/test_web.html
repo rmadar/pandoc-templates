@@ -160,71 +160,51 @@ neque ac nulla mollis cursus. Fusce mollis egestas libero mattis facilisis.</cod
 <a class="sourceLine" id="cb7-3" data-line-number="3">a <span class="op">=</span> np.random.rand(<span class="dv">10</span>,<span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="bu">print</span>(a)</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">a</a></code></pre></div>
-<pre><code>[[3.28335992e-01 2.09081428e-02 2.39455016e-01 2.18887678e-01
-  3.31636188e-01 3.28370178e-01 8.99407491e-01 9.77217276e-01
-  3.48419128e-02 6.44781769e-01]
- [4.03249409e-02 8.60377480e-01 8.03514154e-02 2.89274459e-02
-  7.57825095e-01 4.24722453e-01 4.58142182e-01 7.49119416e-01
-  7.26534787e-01 5.42046478e-01]
- [4.01020740e-01 6.00382779e-01 5.94286603e-01 7.78618819e-01
-  5.93207387e-02 6.50061089e-01 1.54361756e-01 9.07982681e-01
-  5.72307250e-01 2.39617482e-01]
- [6.88493954e-01 9.72664760e-01 9.43090949e-01 6.04117250e-01
-  8.72565332e-01 4.93263915e-01 6.85423972e-01 1.54602148e-01
-  4.49967173e-01 1.17678375e-02]
- [4.82078970e-01 2.58133009e-01 8.52080792e-01 2.92486675e-04
-  3.34735492e-01 7.60418566e-01 1.87939148e-01 1.04504277e-01
-  9.61048789e-01 2.35007564e-01]
- [9.90682091e-01 2.63656310e-01 6.14854385e-01 2.92750052e-01
-  6.91904811e-01 3.79470769e-01 3.41164729e-01 2.08580473e-01
-  8.98573692e-01 5.74530902e-01]
- [2.37095757e-01 5.40383887e-02 6.07676001e-01 2.82290306e-01
-  3.77525627e-01 1.35632166e-01 4.41511651e-01 1.23232351e-02
-  2.16267597e-02 4.60131390e-01]
- [5.73703173e-01 2.92152168e-01 9.27216682e-01 9.98227202e-01
-  8.18362578e-02 2.40914386e-01 6.70173715e-01 2.74676653e-01
-  2.44808607e-01 7.20641050e-02]
- [5.47599887e-01 5.94205760e-01 9.62638421e-01 3.95926246e-02
-  9.03065276e-02 4.61999345e-01 6.66026985e-01 4.33826334e-01
-  7.12166701e-01 5.74969106e-01]
- [9.61544109e-01 4.69346213e-01 4.52908893e-01 7.57540242e-01
-  1.06956147e-01 9.05080164e-01 2.91776777e-01 6.62814343e-02
-  3.97958547e-01 9.33997986e-01]]
+<pre><code>[[0.33520813 0.83802892 0.30638378 0.38113603 0.98836274 0.3172446
+  0.2891722  0.85556341 0.43507086 0.30012501]
+ [0.72346239 0.80083619 0.13257636 0.87316642 0.92948006 0.74320405
+  0.23481632 0.40668767 0.16712725 0.30750508]
+ [0.81563861 0.92361483 0.89628877 0.36067035 0.23212018 0.14908733
+  0.23711083 0.52257131 0.93443301 0.8026964 ]
+ [0.41528194 0.4899801  0.0821376  0.63104194 0.58999718 0.81522154
+  0.98169928 0.94962063 0.24518478 0.0083764 ]
+ [0.06521277 0.62424143 0.91099566 0.12911407 0.60840975 0.75929495
+  0.5812828  0.99665643 0.98838358 0.66526654]
+ [0.49082496 0.84909792 0.4039483  0.0475618  0.66595686 0.08073393
+  0.59890437 0.13690958 0.07661237 0.37912384]
+ [0.57472945 0.62644709 0.23593095 0.62563431 0.63357978 0.66468539
+  0.32824805 0.92691036 0.77163918 0.58447959]
+ [0.82486247 0.17073715 0.08648208 0.42765726 0.82815182 0.91285879
+  0.32822903 0.81787713 0.89914425 0.07885086]
+ [0.81687734 0.08903654 0.41934369 0.84451728 0.09955357 0.87224393
+  0.50029571 0.07638133 0.09624543 0.10568888]
+ [0.4685684  0.18253565 0.35690757 0.16782686 0.92045263 0.79418766
+  0.74816995 0.82878518 0.1036162  0.99467706]]
 
 
 
 
 
-array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
-        3.31636188e-01, 3.28370178e-01, 8.99407491e-01, 9.77217276e-01,
-        3.48419128e-02, 6.44781769e-01],
-       [4.03249409e-02, 8.60377480e-01, 8.03514154e-02, 2.89274459e-02,
-        7.57825095e-01, 4.24722453e-01, 4.58142182e-01, 7.49119416e-01,
-        7.26534787e-01, 5.42046478e-01],
-       [4.01020740e-01, 6.00382779e-01, 5.94286603e-01, 7.78618819e-01,
-        5.93207387e-02, 6.50061089e-01, 1.54361756e-01, 9.07982681e-01,
-        5.72307250e-01, 2.39617482e-01],
-       [6.88493954e-01, 9.72664760e-01, 9.43090949e-01, 6.04117250e-01,
-        8.72565332e-01, 4.93263915e-01, 6.85423972e-01, 1.54602148e-01,
-        4.49967173e-01, 1.17678375e-02],
-       [4.82078970e-01, 2.58133009e-01, 8.52080792e-01, 2.92486675e-04,
-        3.34735492e-01, 7.60418566e-01, 1.87939148e-01, 1.04504277e-01,
-        9.61048789e-01, 2.35007564e-01],
-       [9.90682091e-01, 2.63656310e-01, 6.14854385e-01, 2.92750052e-01,
-        6.91904811e-01, 3.79470769e-01, 3.41164729e-01, 2.08580473e-01,
-        8.98573692e-01, 5.74530902e-01],
-       [2.37095757e-01, 5.40383887e-02, 6.07676001e-01, 2.82290306e-01,
-        3.77525627e-01, 1.35632166e-01, 4.41511651e-01, 1.23232351e-02,
-        2.16267597e-02, 4.60131390e-01],
-       [5.73703173e-01, 2.92152168e-01, 9.27216682e-01, 9.98227202e-01,
-        8.18362578e-02, 2.40914386e-01, 6.70173715e-01, 2.74676653e-01,
-        2.44808607e-01, 7.20641050e-02],
-       [5.47599887e-01, 5.94205760e-01, 9.62638421e-01, 3.95926246e-02,
-        9.03065276e-02, 4.61999345e-01, 6.66026985e-01, 4.33826334e-01,
-        7.12166701e-01, 5.74969106e-01],
-       [9.61544109e-01, 4.69346213e-01, 4.52908893e-01, 7.57540242e-01,
-        1.06956147e-01, 9.05080164e-01, 2.91776777e-01, 6.62814343e-02,
-        3.97958547e-01, 9.33997986e-01]])</code></pre>
+array([[0.33520813, 0.83802892, 0.30638378, 0.38113603, 0.98836274,
+        0.3172446 , 0.2891722 , 0.85556341, 0.43507086, 0.30012501],
+       [0.72346239, 0.80083619, 0.13257636, 0.87316642, 0.92948006,
+        0.74320405, 0.23481632, 0.40668767, 0.16712725, 0.30750508],
+       [0.81563861, 0.92361483, 0.89628877, 0.36067035, 0.23212018,
+        0.14908733, 0.23711083, 0.52257131, 0.93443301, 0.8026964 ],
+       [0.41528194, 0.4899801 , 0.0821376 , 0.63104194, 0.58999718,
+        0.81522154, 0.98169928, 0.94962063, 0.24518478, 0.0083764 ],
+       [0.06521277, 0.62424143, 0.91099566, 0.12911407, 0.60840975,
+        0.75929495, 0.5812828 , 0.99665643, 0.98838358, 0.66526654],
+       [0.49082496, 0.84909792, 0.4039483 , 0.0475618 , 0.66595686,
+        0.08073393, 0.59890437, 0.13690958, 0.07661237, 0.37912384],
+       [0.57472945, 0.62644709, 0.23593095, 0.62563431, 0.63357978,
+        0.66468539, 0.32824805, 0.92691036, 0.77163918, 0.58447959],
+       [0.82486247, 0.17073715, 0.08648208, 0.42765726, 0.82815182,
+        0.91285879, 0.32822903, 0.81787713, 0.89914425, 0.07885086],
+       [0.81687734, 0.08903654, 0.41934369, 0.84451728, 0.09955357,
+        0.87224393, 0.50029571, 0.07638133, 0.09624543, 0.10568888],
+       [0.4685684 , 0.18253565, 0.35690757, 0.16782686, 0.92045263,
+        0.79418766, 0.74816995, 0.82878518, 0.1036162 , 0.99467706]])</code></pre>
 <h1 id="image-and-plots"><span class="header-section-number">4</span> Image and plots</h1>
 <h2 id="as-plain-text-using-markdown"><span class="header-section-number">4.1</span> As plain text using markdown</h2>
 <p>Once exported as markdown and converted to latex/pdf with pandoc, the <code>{width=60%}</code> will fix the width of the picture and the <code>My legend</code> will appear as caption:</p>
@@ -259,7 +239,7 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <a class="sourceLine" id="cb14-7" data-line-number="7">       <span class="st">&#39;plot from Jupyter notebook in MD,&#39;</span><span class="op">+\</span></a>
 <a class="sourceLine" id="cb14-8" data-line-number="8">       <span class="st">&#39;to be processed using PANDOC&#39;</span>,<span class="st">&#39;100%&#39;</span>)</a></code></pre></div>
 <figure>
-<img src="myplot__jpu_n0.png" alt="This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot" style="width:100.0%" /><figcaption>This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
+<img src="myplot.png" alt="This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot" style="width:100.0%" /><figcaption>This is a test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
 </figure>
 <p>We can then refer to a given figure using cross-references <a href="#myplot">like this</a>, obtained with:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="ot">[like this](#myplot)</span></a></code></pre></div>
@@ -272,7 +252,7 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <a class="sourceLine" id="cb16-7" data-line-number="7">       <span class="st">&#39;plot from Jupyter notebook in MD,&#39;</span><span class="op">+\</span></a>
 <a class="sourceLine" id="cb16-8" data-line-number="8">       <span class="st">&#39;to be processed using PANDOC&#39;</span>,<span class="st">&#39;50%&#39;</span>)</a></code></pre></div>
 <figure>
-<img src="myplot2__jpu_n0.png" alt="This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot2" style="width:50.0%" /><figcaption>This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
+<img src="myplot2.png" alt="This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC" id="myplot2" style="width:50.0%" /><figcaption>This is another test of how to get properplot from Jupyter notebook in MD,to be processed using PANDOC</figcaption>
 </figure>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</a>
 <a class="sourceLine" id="cb17-2" data-line-number="2">plt.plot(x<span class="op">**</span><span class="dv">3</span>,y)</a>
@@ -282,7 +262,7 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <a class="sourceLine" id="cb17-6" data-line-number="6">plt.tight_layout()</a>
 <a class="sourceLine" id="cb17-7" data-line-number="7">jpu.plt2md(<span class="st">&#39;myplot3&#39;</span>,<span class="st">&#39;Adding more plot without re-creating a figure: curves cumulates&#39;</span>,<span class="st">&#39;50%&#39;</span>)</a></code></pre></div>
 <figure>
-<img src="myplot3__jpu_n0.png" alt="Adding more plot without re-creating a figure: curves cumulates" id="myplot3" style="width:50.0%" /><figcaption>Adding more plot without re-creating a figure: curves cumulates</figcaption>
+<img src="myplot3.png" alt="Adding more plot without re-creating a figure: curves cumulates" id="myplot3" style="width:50.0%" /><figcaption>Adding more plot without re-creating a figure: curves cumulates</figcaption>
 </figure>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">plt.plot(x<span class="op">**</span><span class="dv">2</span>,y)</a>
@@ -292,7 +272,7 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <a class="sourceLine" id="cb18-6" data-line-number="6">plt.tight_layout()</a>
 <a class="sourceLine" id="cb18-7" data-line-number="7">jpu.plt2md(<span class="st">&#39;myplot4&#39;</span>,<span class="st">&#39;More plot with re-creating a figure: only last curve&#39;</span>,<span class="st">&#39;100%&#39;</span>)</a></code></pre></div>
 <figure>
-<img src="myplot4__jpu_n0.png" alt="More plot with re-creating a figure: only last curve" id="myplot4" style="width:100.0%" /><figcaption>More plot with re-creating a figure: only last curve</figcaption>
+<img src="myplot4.png" alt="More plot with re-creating a figure: only last curve" id="myplot4" style="width:100.0%" /><figcaption>More plot with re-creating a figure: only last curve</figcaption>
 </figure>
 <h1 id="operator-highlighing-check"><span class="header-section-number">5</span> Operator Highlighing Check</h1>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#This is a comment with an operation x @ y in it.</span></a>
@@ -302,8 +282,13 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <a class="sourceLine" id="cb19-5" data-line-number="5">a <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>])</a>
 <a class="sourceLine" id="cb19-6" data-line-number="6">b <span class="op">=</span> <span class="bu">set</span>([<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">0</span>])</a>
 <a class="sourceLine" id="cb19-7" data-line-number="7">a <span class="op">&amp;</span> b</a></code></pre></div>
-<pre><code>1952904.9236703357</code></pre>
-<p><span class="math display">\[\left\{0, 2, 4, 6, 8\right\}\]</span></p>
+<pre><code>1952904.9236703357
+
+
+
+
+
+{0, 2, 4, 6, 8}</code></pre>
 <h1 id="tables"><span class="header-section-number">6</span> Tables</h1>
 <h2 id="markdown-as-plain-text"><span class="header-section-number">6.1</span> Markdown as plain text</h2>
 <p>First a <em>markdown</em> <a href="#tbl:label1">table</a>:</p>
@@ -335,7 +320,7 @@ array([[3.28335992e-01, 2.09081428e-02, 2.39455016e-01, 2.18887678e-01,
 <h2 id="pandas-as-default-and-markdown" class="allowframebreaks"><span class="header-section-number">6.2</span> Pandas as default and Markdown</h2>
 <div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
 <a class="sourceLine" id="cb21-2" data-line-number="2">df<span class="op">=</span>pd.DataFrame(np.random.randn(<span class="dv">10</span>,<span class="dv">3</span>))</a></code></pre></div>
-<p>Default printing is HTML, so it looks good on the web but it is not well rendered in pdf via ipynb-&gt;MB-&gt;pdf (using nbconvert and pandoc). A special function <code>df2md(df)</code> is included in the <code>jupy_pandoc_utils</code> package to write out a markdown format. This allows to set caption and even to refer to the table in the main document <a href="#tbl:label2">like this</a> (using vanilla pandoc) or cited like table Tbl. 2 (using pandoc-crossref filter)</p>
+<p>Default printing is HTML, so it looks good on the web but it is not well rendered in pdf via ipynb-&gt;MB-&gt;pdf (using nbconvert and pandoc). A special function <code>df2md(df)</code> is included in the <code>jupy_pandoc_utils</code> package to write out a markdown format. This allows to set caption and even to refer to the table in the main document <a href="#tbl:label2">like this</a> (using vanilla pandoc) or cited like table Tbl. 2 (using pandoc-crossref filter, but hyperlink doesn’t seem to work in HTML though)</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Good in HTML, but not pure markdown</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"><span class="co"># Impossible to put a caption</span></a>
 <a class="sourceLine" id="cb22-3" data-line-number="3">df.describe()</a></code></pre></div>
@@ -389,13 +374,13 @@ count
 mean
 </th>
 <td>
--0.646348
+0.217754
 </td>
 <td>
-0.350014
+0.045411
 </td>
 <td>
-0.510550
+-0.249525
 </td>
 </tr>
 <tr>
@@ -403,13 +388,13 @@ mean
 std
 </th>
 <td>
-1.158521
+0.793298
 </td>
 <td>
-0.423058
+0.796672
 </td>
 <td>
-1.058391
+0.611138
 </td>
 </tr>
 <tr>
@@ -417,13 +402,13 @@ std
 min
 </th>
 <td>
--2.046844
+-1.614746
 </td>
 <td>
--0.385473
+-1.356715
 </td>
 <td>
--1.196879
+-1.066773
 </td>
 </tr>
 <tr>
@@ -431,13 +416,13 @@ min
 25%
 </th>
 <td>
--1.625953
+-0.069524
 </td>
 <td>
-0.254691
+-0.463006
 </td>
 <td>
--0.100614
+-0.700146
 </td>
 </tr>
 <tr>
@@ -445,13 +430,13 @@ min
 50%
 </th>
 <td>
--1.066830
+0.283010
 </td>
 <td>
-0.426933
+0.082283
 </td>
 <td>
-0.697487
+-0.181110
 </td>
 </tr>
 <tr>
@@ -459,13 +444,13 @@ min
 75%
 </th>
 <td>
-0.284652
+0.831086
 </td>
 <td>
-0.530427
+0.507939
 </td>
 <td>
-1.189910
+0.240598
 </td>
 </tr>
 <tr>
@@ -473,13 +458,13 @@ min
 max
 </th>
 <td>
-0.960686
+1.029950
 </td>
 <td>
-1.001296
+1.491542
 </td>
 <td>
-2.201464
+0.492206
 </td>
 </tr>
 </tbody>
@@ -487,7 +472,6 @@ max
 </div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Good in pure MD and possible to put a caption and a label</span></a>
 <a class="sourceLine" id="cb23-2" data-line-number="2">jpu.df2md(df.describe(),<span class="st">&#39;Caption table. {#tbl:label2}&#39;</span>)</a></code></pre></div>
-<p>Index([0, 1, 2, ‘labels’], dtype=‘object’)</p>
 <div id="tbl:label2">
 <table>
 <caption>Table 2: Caption table.</caption>
@@ -508,45 +492,108 @@ max
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>mean</strong></td>
-<td style="text-align: right;">-0.646348</td>
-<td style="text-align: right;">0.350014</td>
-<td style="text-align: right;">0.51055</td>
+<td style="text-align: right;">0.217754</td>
+<td style="text-align: right;">0.0454111</td>
+<td style="text-align: right;">-0.249525</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>std</strong></td>
-<td style="text-align: right;">1.15852</td>
-<td style="text-align: right;">0.423058</td>
-<td style="text-align: right;">1.05839</td>
+<td style="text-align: right;">0.793298</td>
+<td style="text-align: right;">0.796672</td>
+<td style="text-align: right;">0.611138</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>min</strong></td>
-<td style="text-align: right;">-2.04684</td>
-<td style="text-align: right;">-0.385473</td>
-<td style="text-align: right;">-1.19688</td>
+<td style="text-align: right;">-1.61475</td>
+<td style="text-align: right;">-1.35671</td>
+<td style="text-align: right;">-1.06677</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>25%</strong></td>
-<td style="text-align: right;">-1.62595</td>
-<td style="text-align: right;">0.254691</td>
-<td style="text-align: right;">-0.100614</td>
+<td style="text-align: right;">-0.0695244</td>
+<td style="text-align: right;">-0.463006</td>
+<td style="text-align: right;">-0.700146</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>50%</strong></td>
-<td style="text-align: right;">-1.06683</td>
-<td style="text-align: right;">0.426933</td>
-<td style="text-align: right;">0.697487</td>
+<td style="text-align: right;">0.28301</td>
+<td style="text-align: right;">0.0822832</td>
+<td style="text-align: right;">-0.18111</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>75%</strong></td>
-<td style="text-align: right;">0.284652</td>
-<td style="text-align: right;">0.530427</td>
-<td style="text-align: right;">1.18991</td>
+<td style="text-align: right;">0.831086</td>
+<td style="text-align: right;">0.507939</td>
+<td style="text-align: right;">0.240598</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>max</strong></td>
-<td style="text-align: right;">0.960686</td>
-<td style="text-align: right;">1.0013</td>
-<td style="text-align: right;">2.20146</td>
+<td style="text-align: right;">1.02995</td>
+<td style="text-align: right;">1.49154</td>
+<td style="text-align: right;">0.492206</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl:label3">
+<table>
+<caption>Table 3: Caption table with hidden source code this time.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>labels</strong></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>count</strong></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>mean</strong></td>
+<td style="text-align: right;">0.217754</td>
+<td style="text-align: right;">0.0454111</td>
+<td style="text-align: right;">-0.249525</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>std</strong></td>
+<td style="text-align: right;">0.793298</td>
+<td style="text-align: right;">0.796672</td>
+<td style="text-align: right;">0.611138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>min</strong></td>
+<td style="text-align: right;">-1.61475</td>
+<td style="text-align: right;">-1.35671</td>
+<td style="text-align: right;">-1.06677</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>25%</strong></td>
+<td style="text-align: right;">-0.0695244</td>
+<td style="text-align: right;">-0.463006</td>
+<td style="text-align: right;">-0.700146</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>50%</strong></td>
+<td style="text-align: right;">0.28301</td>
+<td style="text-align: right;">0.0822832</td>
+<td style="text-align: right;">-0.18111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>75%</strong></td>
+<td style="text-align: right;">0.831086</td>
+<td style="text-align: right;">0.507939</td>
+<td style="text-align: right;">0.240598</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>max</strong></td>
+<td style="text-align: right;">1.02995</td>
+<td style="text-align: right;">1.49154</td>
+<td style="text-align: right;">0.492206</td>
 </tr>
 </tbody>
 </table>
@@ -564,5 +611,6 @@ max
 <p><span class="math inline">\(\frac{P_{n}^{\left(m\right)}\left(\cos{\left (\theta \right )}\right)}{2 \sqrt{\pi}} \sqrt{\frac{\left(- m + n\right)!}{\left(m + n\right)!} \left(2 n + 1\right)} e^{i m \phi}\)</span></p>
 <h1 id="line-length"><span class="header-section-number">8</span> Line Length</h1>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">30</span> <span class="dv">33</span> <span class="dv">36</span> <span class="dv">39</span> <span class="dv">42</span> <span class="dv">45</span> <span class="dv">48</span> <span class="dv">51</span> <span class="dv">54</span> <span class="dv">57</span> <span class="dv">60</span> <span class="dv">63</span> <span class="dv">66</span> <span class="dv">69</span> <span class="dv">72</span> <span class="dv">75</span> <span class="dv">78</span> <span class="dv">81</span> <span class="dv">84</span> <span class="dv">87</span> <span class="dv">90</span> <span class="dv">93</span> <span class="dv">96</span> <span class="dv">99</span> <span class="dv">103</span></a></code></pre></div>
+<p>File “<ipython-input-19-d93d7d2148ce>”, line 1 1 3 5 7 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90 93 96 99 103 ^ SyntaxError: invalid syntax</p>
 </body>
 </html>
