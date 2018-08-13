@@ -114,6 +114,7 @@ order to properly perform the tasks below (and possibly many more).
 
 ### Using jupyter notebook
 
+- [ ] implement a tag-filter system to hide input or output (copied on currently implement `hide` tag)
 - [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
 - [x] investigate/test html and tune the css file for the notebook
 - [ ] check the exported figure with pdf format and how to add caption (for ouput of codes)
