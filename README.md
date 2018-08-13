@@ -94,6 +94,9 @@ pip install tabulate
 It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
 order to properly perform the tasks below (and possibly many more).
 
+### Documentation
+
+- [ ] explain the workflow and the various tags accepted for the notebook
 
 ### Cross-references
 - [ ] `pandoc-crossref` works well but
