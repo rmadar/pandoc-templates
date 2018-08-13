@@ -32,7 +32,7 @@ def plt2md(figlabel,figcaption,figsize):
     return display(Markdown(strMD))
 
 
-def df2md(df,caption=None):
+def df2md(df,caption=None,label=None):
     '''
     Docd string to be written soon
     '''
@@ -45,9 +45,11 @@ def df2md(df,caption=None):
     c=c[-1:]+c[:-1]
     df3=df3[c]
     output = tabulate(df3, headers='keys',tablefmt='pipe',showindex=False)
+    output += '\n'
     if caption:
-        output += '\n'
         output += 'Table: ' + caption
+    if label:
+        output += ' {'+label+'}'
     return display(Markdown(output))
 
 def clean_notebook(name):

@@ -535,6 +535,9 @@ max
 </tbody>
 </table>
 </div>
+<p>One might want to display table without showing the code which leads to it, especially in a proper documentation. The following block will display the table in the final document but not the line</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">jpu.df2md(df.describe(),<span class="st">&#39;Caption table with hidden source code this time. {#tbl:label3}&#39;</span>)</a></code></pre></div>
+<p>which produces it, as shown in Tbl. 3</p>
 <div id="tbl:label3">
 <table>
 <caption>Table 3: Caption table with hidden source code this time.</caption>
@@ -599,18 +602,18 @@ max
 </table>
 </div>
 <h1 id="sympy-output"><span class="header-section-number">7</span> Sympy output</h1>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="im">import</span> sympy</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="im">from</span> sympy.abc <span class="im">import</span> x, n, m</a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">sympy.init_printing()</a>
-<a class="sourceLine" id="cb24-4" data-line-number="4">theta <span class="op">=</span> sympy.Symbol(<span class="st">&#39;theta&#39;</span>)</a>
-<a class="sourceLine" id="cb24-5" data-line-number="5">phi <span class="op">=</span> sympy.Symbol(<span class="st">&#39;phi&#39;</span>)</a>
-<a class="sourceLine" id="cb24-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb24-7" data-line-number="7">sympy.simplify(sympy.Ynm(n,m,theta,phi).expand(func<span class="op">=</span><span class="va">True</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="im">import</span> sympy</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="im">from</span> sympy.abc <span class="im">import</span> x, n, m</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">sympy.init_printing()</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">theta <span class="op">=</span> sympy.Symbol(<span class="st">&#39;theta&#39;</span>)</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">phi <span class="op">=</span> sympy.Symbol(<span class="st">&#39;phi&#39;</span>)</a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7">sympy.simplify(sympy.Ynm(n,m,theta,phi).expand(func<span class="op">=</span><span class="va">True</span>))</a></code></pre></div>
 <p><span class="math display">\[\frac{\sqrt{\frac{\left(2 n + 1\right) \Gamma\left(- m + n + 1\right)}{\Gamma\left(m + n + 1\right)}} e^{i m \phi} P_{n}^{\left(m\right)}\left(\cos{\left (\theta \right )}\right)}{2 \sqrt{\pi}}\]</span></p>
 <p>x + y as plain text.</p>
 <p><span class="math inline">\(\frac{P_{n}^{\left(m\right)}\left(\cos{\left (\theta \right )}\right)}{2 \sqrt{\pi}} \sqrt{\frac{\left(- m + n\right)!}{\left(m + n\right)!} \left(2 n + 1\right)} e^{i m \phi}\)</span></p>
 <h1 id="line-length"><span class="header-section-number">8</span> Line Length</h1>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">30</span> <span class="dv">33</span> <span class="dv">36</span> <span class="dv">39</span> <span class="dv">42</span> <span class="dv">45</span> <span class="dv">48</span> <span class="dv">51</span> <span class="dv">54</span> <span class="dv">57</span> <span class="dv">60</span> <span class="dv">63</span> <span class="dv">66</span> <span class="dv">69</span> <span class="dv">72</span> <span class="dv">75</span> <span class="dv">78</span> <span class="dv">81</span> <span class="dv">84</span> <span class="dv">87</span> <span class="dv">90</span> <span class="dv">93</span> <span class="dv">96</span> <span class="dv">99</span> <span class="dv">103</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">30</span> <span class="dv">33</span> <span class="dv">36</span> <span class="dv">39</span> <span class="dv">42</span> <span class="dv">45</span> <span class="dv">48</span> <span class="dv">51</span> <span class="dv">54</span> <span class="dv">57</span> <span class="dv">60</span> <span class="dv">63</span> <span class="dv">66</span> <span class="dv">69</span> <span class="dv">72</span> <span class="dv">75</span> <span class="dv">78</span> <span class="dv">81</span> <span class="dv">84</span> <span class="dv">87</span> <span class="dv">90</span> <span class="dv">93</span> <span class="dv">96</span> <span class="dv">99</span> <span class="dv">103</span></a></code></pre></div>
 <p>File “<ipython-input-19-d93d7d2148ce>”, line 1 1 3 5 7 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60 63 66 69 72 75 78 81 84 87 90 93 96 99 103 ^ SyntaxError: invalid syntax</p>
 </body>
 </html>
