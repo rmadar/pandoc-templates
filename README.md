@@ -1,7 +1,17 @@
 # Writting documentation with pandoc
 
 This repository contains various templates and building scripts based on [pandoc](http://pandoc.org) 
-in order to produce article, slides or webpage with a predifined (and tunable) style.
+in order to produce article, slides or webpage with a predifined (and tunable) style. The workflow model
+of this repository the following:
+
+> raw markdown -> [PANDOC] -> article/book/webpage/slide
+
+where the `raw markdown` can be generated in two ways:
+  1. simply wih an editor
+  2. using jupyter notebooks
+
+
+---
 
 ## Setup the tool
 
