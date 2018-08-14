@@ -9,6 +9,7 @@ if [ $# -ne 2 ]; then
 fi
 
 # HTML
-pandoc -N -s ${1} -o ${2} --highlight-style tango --mathjax --css ${PANDOC_TEMPLATES}/webstyle_template.css --toc\
+pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml \
+       ${1} -o ${2} --highlight-style tango --mathjax --css ${PANDOC_TEMPLATES}/webstyle_template.css --toc\
        --filter ${PANDOC_FILTERS}/pandoc-crossref\
        --filter pandoc-citeproc

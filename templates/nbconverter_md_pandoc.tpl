@@ -10,7 +10,7 @@
 
 
 {% block input_group %}
-    {% if 'hide_code' not in cell['metadata'].get('tags', []) %}
+    {% if 'hide_input' not in cell['metadata'].get('tags', []) %}
         {{ super() }}
     {% endif %}
 {% endblock input_group %}
