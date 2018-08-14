@@ -9,6 +9,6 @@ export PANDOC_FILTERS=`pwd`/filters
 PATH=$PATH:${PANDOC_SCRIPTS}
 
 # Locally install python helper packages
-cd python_tools/jupy_pandoc_utils/
+cd jupy_pandoc_utils/.
 pip install -e .  --user
 cd -
