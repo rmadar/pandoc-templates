@@ -69,13 +69,23 @@ def clean_notebook(name):
     os.rename(name.replace('.ipynb','_clean.ipynb'),name)
 
 def nb2md(name):
+    '''
+    Doc string to be written soon
+    '''
     os.system('jupyter-nbconvert --to markdown ' + name +
               ' --template=${PANDOC_TEMPLATES}/nbconverter_md_pandoc.tpl')
     outname=name.replace('.ipynb','.md')
     fin=open(outname,'r')
     fout=open(outname.replace('.md','_clean.md'),'w')
+
+    # list of figure in current directories
+    import glob
+    pngfile_list=glob.glob('**/*.png',recursive=True)
+    pdffile_list=glob.glob('**/*.pdf',recursive=True)
     for l in fin:
-        #if '.png' in l: l=l.replace('.png','.pdf')
+        for s in pngfile_list:
+            if s in l and s.replace('.png','.pdf') in pdffile_list:
+                l=l.replace(s,s.replace('.png','.pdf'))
         fout.write(l)
     fin.close()
     fout.close()
