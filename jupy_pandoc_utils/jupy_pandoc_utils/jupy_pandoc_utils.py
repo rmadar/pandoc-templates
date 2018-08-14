@@ -57,6 +57,7 @@ def df2md(df,caption=None,label=None):
         output += ' {'+label+'}'
     return display(Markdown(output))
 
+
 def clean_notebook(name):
     '''
     Doc string to be written
@@ -73,6 +74,7 @@ def clean_notebook(name):
     fout.close()
     os.rename(name.replace('.ipynb','_clean.ipynb'),name)
 
+
 def nb2md(name,png2pdf=True):
     '''
     Doc string to be written soon
@@ -85,8 +87,15 @@ def nb2md(name,png2pdf=True):
 
     # list of figure in current directories
     import glob
-    pngfile_list=glob.glob('**/*.png',recursive=True)
-    pdffile_list=glob.glob('**/*.pdf',recursive=True)
+    import sys
+    isPython3 = sys.version_info[0] > 3
+    pngfile_list,pdffile_list=[],[]
+    if isPython3:
+        pngfile_list=glob.glob('**/*.png',recursive=True)
+        pdffile_list=glob.glob('**/*.pdf',recursive=True)
+    else:
+        print('nb2md():: you are using python {} while png to pdf '.format(sys.version_info[0])+
+              'replacement is supported for python3 only.')
     for l in fin:
         for s in pngfile_list:
             if s in l and s.replace('.png','.pdf') in pdffile_list and png2pdf:
@@ -96,7 +105,7 @@ def nb2md(name,png2pdf=True):
     fout.close()
 
     finalfile=outname.replace('.md','_png.md')
-    if png2pdf:
+    if png2pdf and isPython3:
         finalfile=outname.replace('.md','_pdf.md')
 
     os.rename(outname.replace('.md','_clean.md'),finalfile)
