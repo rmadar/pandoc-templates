@@ -129,6 +129,8 @@ order to properly perform the tasks below (and possibly many more).
 - [ ] tune title page for LaTeX books
 - [ ] modify latex template to remove horizontal line (so that slide transition don't appear in article.pdf)
 
+### Tables
+- [ ] keep table on a same page, when possible
 
 ### Using jupyter notebook
 
