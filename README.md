@@ -89,7 +89,7 @@ and the other is based on the notebooks produce with [jupyter notebook](http://j
 in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pdf), [html](examples/BookRandomTopics/RandomTopics.html)).
 [Another example](examples/ActivityReport) shows with bibliography in both pdf and html.
 
-
+---
 
 ## Technical comments
 
