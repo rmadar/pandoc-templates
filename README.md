@@ -6,10 +6,13 @@ of this repository the following:
 
 > raw markdown -> [PANDOC] -> article/book/webpage/slide
 
-where the `raw markdown` can be generated in two ways:
-  1. simply wih an editor
-  2. using jupyter notebooks
+The "pandoc box" needs templates and filters which are stored/installed in corresponding directories of the repository. Also, in order to properly break long code lines, the package `fvextra`. See [dependencies section](#dependencies) for more details.
 
+The `raw markdown` file can be generated in two ways:
+  1. simply with an editor
+  2. using jupyter notebooks, where more work was needed.
+
+First of all, cell tags where implemented in `nbconvert` template [nbconverter_md_pandoc.tpl](templates/nbconverter_md_pandoc.tpl) in order to hide a whole cell, its code or its output. But a proper generation of markdown file (including figure/table caption, hidding code, etc ...) from a notebook is not straightfoward. That's the reason why the python package [jupy_pandoc_utils](jupy_pandoc_utils) was developped. It allows to attach caption and label to figure and table, as well as automatically find `pdf` files to replace the `png` (optional). Having output plots as file lead to some refreshing issues (browser caching) that was worked around more or less manually.
 
 ---
 
@@ -70,7 +73,13 @@ a html file template (not yet created) with a given structure.
 ```
 makeWebpage notes.md blogpost.html
 ```
+### Create a markdown file from a notebook
 
+Two main informations to exploit this tool:
+  1. you need to import `jupy_pandoc_utils` package to get figure/table caption and lable.
+  2. use the tags `hide`, `hide_input` and `hide_output` to select what you want to remove from your final document.
+
+It is recommanded to read and run [this example notebook](examples/NotebookWithCode/test.ipynb), where all the features are demonstrated.
 
 ## Run the examples
 
@@ -104,12 +113,8 @@ pip install tabulate
 It might be interesting to have a look to [pandoc filter in python](https://github.com/jgm/pandocfilters) in 
 order to properly perform the tasks below (and possibly many more).
 
-### Documentation
-
-- [ ] explain the workflow and the various tags accepted for the notebook
-
 ### Cross-references
-- [ ] `pandoc-crossref` works well but
+- [ ] `pandoc-crossref` works well but:
   1. there are no hyperlink for table in HTML (while it works in LaTeX)
   2. there is no counting of figure in HTML (while it works in LaTeX and for Tables in HTML too)
 
@@ -127,13 +132,13 @@ order to properly perform the tasks below (and possibly many more).
 
 ### Using jupyter notebook
 
-- [ ] implement a tag-filter system to hide input or output (copied on currently implement `hide` tag)
+- [x] implement a tag-filter system to hide input or output (copied on currently implement `hide` tag)
 - [ ] references works for article conversion but not beamer slides. The issue is because there is no `frame` environment to print the biblio
 - [x] investigate/test html and tune the css file for the notebook
-- [ ] check the exported figure with pdf format and how to add caption (for ouput of codes)
+- [x] check the exported figure with pdf format and how to add caption (for ouput of codes)
    + [x] solution found and implemted in [jupy_pandoc_utils](python_tools/jupy_pandoc_utils.py) 
    quite manual for now but it works, except for the NB visualisation online (main
    issue: *data caching* for `png`, worked around by creating a new `png` each time)
    + [x] but visualization needs the last `png` version (which always changes): how to solve these issues? Done by a cleaning script
-   + [ ] find a way to replace in `output.md` figure extension `png` by `pdf` when the pdf exist
+   + [x] find a way to replace in `output.md` figure extension `png` by `pdf` when the pdf exist
 - [x] pandas dataframe output as markdown, not html (check [tabulate](https://pypi.org/project/tabulate/))
