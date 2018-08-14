@@ -5,30 +5,35 @@ from tabulate import tabulate
 
 jupy_pandoc_COUNTERS={}
 
-def plt2md(figlabel,figcaption,figsize):
+def plt2md(figname,figcaption='figure',figsize=None,figlabel=None):
     '''
     Doc string to be written
     '''
     import matplotlib.pyplot as plt
     global jupy_pandoc_COUNTER
 
-    if figlabel not in jupy_pandoc_COUNTERS:
-        jupy_pandoc_COUNTERS[figlabel]=0
+    if figname not in jupy_pandoc_COUNTERS:
+        jupy_pandoc_COUNTERS[figname]=0
         
-    for i in range(0,jupy_pandoc_COUNTERS[figlabel]):
-        oldfilename=os.path.join(os.getcwd(),figlabel+'__n'+str(i)+'.png')
+    for i in range(0,jupy_pandoc_COUNTERS[figname]):
+        oldfilename=os.path.join(os.getcwd(),figname+'__n'+str(i)+'.png')
         if (os.path.isfile(oldfilename)):
             os.remove(oldfilename)
             
-    figname = figlabel+'__jpu_n'+str(jupy_pandoc_COUNTERS[figlabel])+'.png'
-    plt.savefig(figname)
-    plt.savefig(figlabel+'.pdf')
-    plt.savefig(figlabel+'.png')
+    figname_tmp = figname+'__jpu_n'+str(jupy_pandoc_COUNTERS[figname])+'.png'
+    plt.savefig(figname_tmp)
+    plt.savefig(figname+'.pdf')
+    plt.savefig(figname+'.png')
     plt.close()
-    strMD='![{}]({})'.format(figcaption,figname) \
-        +'{' + 'width={} #'.format(figsize) + figlabel + '}'
+    strMD='![{}]({})'.format(figcaption,figname_tmp)
+    if figsize and figlabel:
+        strMD+='{' + 'width={} #'.format(figsize) + figlabel + '}'
+    elif figsize:
+        strMD+='{' + 'width={}'.format(figsize)+'}'
+    elif figlabel:
+        strMD+='{ #'+ figlabel + '}'
 
-    jupy_pandoc_COUNTERS[figlabel]+=1
+    jupy_pandoc_COUNTERS[figname]+=1
     return display(Markdown(strMD))
 
 
@@ -68,7 +73,7 @@ def clean_notebook(name):
     fout.close()
     os.rename(name.replace('.ipynb','_clean.ipynb'),name)
 
-def nb2md(name):
+def nb2md(name,png2pdf=True):
     '''
     Doc string to be written soon
     '''
@@ -84,12 +89,16 @@ def nb2md(name):
     pdffile_list=glob.glob('**/*.pdf',recursive=True)
     for l in fin:
         for s in pngfile_list:
-            if s in l and s.replace('.png','.pdf') in pdffile_list:
+            if s in l and s.replace('.png','.pdf') in pdffile_list and png2pdf:
                 l=l.replace(s,s.replace('.png','.pdf'))
         fout.write(l)
     fin.close()
     fout.close()
-    os.rename(outname.replace('.md','_clean.md'),outname)
-    
-    print(outname + ' is created')
+
+    finalfile=outname.replace('.md','_png.md')
+    if png2pdf:
+        finalfile=outname.replace('.md','_pdf.md')
+
+    os.rename(outname.replace('.md','_clean.md'),finalfile)
+    print(finalfile + ' is created')
     return
