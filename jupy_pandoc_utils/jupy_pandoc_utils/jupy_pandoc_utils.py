@@ -94,8 +94,12 @@ def nb2md(name,png2pdf=True):
         pngfile_list=glob.glob('**/*.png',recursive=True)
         pdffile_list=glob.glob('**/*.pdf',recursive=True)
     else:
-        print('nb2md():: you are using python {} while png to pdf '.format(sys.version_info[0])+
-              'replacement is supported for python3 only.')
+        for dirpath, dirs, files in os.walk("."):
+	    for f in files:
+                if f.endswith('.png'): pngfile_list.append(os.path.join(dirpath,f).replace('./',''))
+                if f.endswith('.pdf'): pdffile_list.append(os.path.join(dirpath,f).replace('./',''))
+        
+    # Replace png by pdf
     for l in fin:
         for s in pngfile_list:
             if s in l and s.replace('.png','.pdf') in pdffile_list and png2pdf:
@@ -104,10 +108,12 @@ def nb2md(name,png2pdf=True):
     fin.close()
     fout.close()
 
-    finalfile=outname.replace('.md','_png.md')
-    if png2pdf and isPython3:
-        finalfile=outname.replace('.md','_pdf.md')
 
+    if png2pdf:
+        finalfile=outname.replace('.md','_pdf.md')
+    else:
+        finalfile=outname.replace('.md','_png.md')
+        
     os.rename(outname.replace('.md','_clean.md'),finalfile)
     print(finalfile + ' is created')
     return
