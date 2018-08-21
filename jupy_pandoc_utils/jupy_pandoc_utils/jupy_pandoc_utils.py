@@ -95,7 +95,7 @@ def nb2md(name,png2pdf=True):
         pdffile_list=glob.glob('**/*.pdf',recursive=True)
     else:
         for dirpath, dirs, files in os.walk("."):
-	    for f in files:
+            for f in files:
                 if f.endswith('.png'): pngfile_list.append(os.path.join(dirpath,f).replace('./',''))
                 if f.endswith('.pdf'): pdffile_list.append(os.path.join(dirpath,f).replace('./',''))
         
