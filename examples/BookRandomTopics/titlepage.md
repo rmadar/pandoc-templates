@@ -1,5 +1,5 @@
 ---
-title: "Example of two notebooks converted into a PDF document"
+title: "Notebooks exportation"
 author: [Romain Madar]
 date: 2018-02-14
 subtitle: "Notebook conversion from markdown using pandoc"

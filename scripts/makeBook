@@ -14,5 +14,5 @@ pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml ${1} -o ${2} --template $
        --filter pandoc-citeproc\
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V documentclass="book"\
-       --listings --highlight-style kate\
+       --highlight-style tango\
        --toc
