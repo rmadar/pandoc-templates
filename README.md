@@ -27,7 +27,7 @@ For an automatic setup, the user can use the following lines in `~/.bashrc` file
 ```
 export PANDOC_TEMPLATES=<installation-dir>/pandoc-utils/templates
 export PANDOC_SCRIPTS=<installation-dir>/pandoc-utils/scripts
-export PANDOC_SCRIPTS=<installation-dir>/pandoc-utils/filters
+export PANDOC_FILTERS=<installation-dir>/pandoc-utils/filters
 PATH=$PATH:${PANDOC_SCRIPTS}
 ```
 where `<installation-dir>` is the directory where pandoc-templates is installed.
