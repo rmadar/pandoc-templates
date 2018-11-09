@@ -15,7 +15,7 @@ pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml ${1} -o ${2} --template $
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
        --highlight-style tango\
-       --toc
+       --toc -V fancypage
 
 ## Other nice font combination
 # -V linestretch="1.0" -V fontsize="11pt" -V fontfamily="kmath,kerkis" 

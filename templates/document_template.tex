@@ -94,7 +94,7 @@ $endif$
   pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{fancyhdr}
-\pagestyle{fancy}
+$if(fancypage)$\pagestyle{fancy}$endif$
 \pagenumbering{arabic}
 \lhead{\itshape $title$}
 \chead{}
