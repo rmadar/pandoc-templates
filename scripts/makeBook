@@ -15,4 +15,4 @@ pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml ${1} -o ${2} --template $
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V documentclass="book"\
        --highlight-style tango\
-       --toc --fancypage
+       --toc -V fancypage

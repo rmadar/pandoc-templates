@@ -95,13 +95,9 @@ in markdown via `nbconvert` ([article](examples/BookRandomTopics/RandomTopics.pd
 
 ## Dependencies
 
-- [fvextra](https://ctan.org/pkg/fvextra?lang=en) latex package, to be installed with miktex as
-```
-sudo cp fvextra /usr/share/texlive/texmf-dist/tex/latex/.
-sudo mktexlsr
-```
-- [tabulate](https://pypi.org/project/tabulate/) python package needed to properly render 
-pandas dataframe in markdown, to be installed as
+- [footmisc](https://ctan.org/pkg/footmisc) latex package to keep footnote at the bottom of the page, available in texlive.
+- [fvextra](https://ctan.org/pkg/fvextra?lang=en) latex package to have code on several lines, available in texlive.
+- [tabulate](https://pypi.org/project/tabulate/) python package needed to properly render pandas dataframe in markdown, to be installed as
 ```
 pip install tabulate
 ```
