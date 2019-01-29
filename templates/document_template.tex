@@ -84,25 +84,35 @@ $endif$
 \else
 \usepackage[unicode=true]{hyperref}
 \fi
-\hypersetup{breaklinks=true,
+
+\definecolor{toc-links}{RGB}{150,10,10}
+\definecolor{url-links}{RGB}{0,00,150}
+\hypersetup{breaklinks=true,linktocpage=false,
   bookmarks=true,
   pdfauthor={$author-meta$},
   pdftitle={$title-meta$},
   colorlinks=true,
   citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$blue$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$url-links$endif$,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$toc-links$endif$,
   pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{fancyhdr}
 $if(fancypage)$\pagestyle{fancy}$endif$
 \pagenumbering{arabic}
-\lhead{\itshape $title$}
-\chead{}
-\rhead{\itshape{\nouppercase{\leftmark}}}
-$if(version)$\lfoot{v $version$}$endif$
-\cfoot{}
-\rfoot{\thepage}
+\fancyhead{}
+%\fancyhead[LE]{\nouppercase\leftmark}
+\fancyhead[C]{\nouppercase\rightmark}
+\fancyfoot{}
+%\fancyfoot[LE]{\thepage}
+\fancyfoot[C]{\thepage}
+
+%\lhead{\itshape $title$}
+%\chead{}
+%\rhead{\itshape{\nouppercase{\leftmark}}}
+%$if(version)$\lfoot{v $version$}$endif$
+%\cfoot{}
+%\rfoot{\thepage}
 
 $if(language)$
 \ifxetex
@@ -248,7 +258,9 @@ $endif$
 
 
 $if(title)$
-\title{{\bf \huge $title$}$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
+\definecolor{subtitle-color}{RGB}{190,190,190}
+\definecolor{rule-color}{RGB}{120,120,120}
+\title{\flushright {\textcolor{rule-color}{\rule{\textwidth}{2pt}}\vspace{0.4em}\\ \bf \huge $title$}$if(subtitle)$\\\vspace{0.2em}{\Large\textcolor{subtitle-color}{$subtitle$}}$endif$ \\ \vspace{-.4em} \textcolor{rule-color}{\rule{\textwidth}{2pt}} \\ \vspace{1.5em}}
 $endif$
 
 $if(author)$
@@ -260,8 +272,8 @@ $endif$
 %% is not supported: it should be implemented
 $if(institute)$
 \usepackage{authblk}
-\author[1]{$for(author)$$author$$sep$ \and $endfor$}
-\affil[1]{$institute$}
+\author{{\bf $for(author)$$author$$sep$ \and $endfor$}}
+\affil{\textit{$institute$} $if(contact)$\\ \vspace{1.0em} \normalsize Contact: \href{mailto:$contact$}{$contact$}$endif$}
 $endif$
 
 \date{$date$}
@@ -306,8 +318,13 @@ $endfor$
 % Redfined url comment as href{}{link}
 %\renewcommand{\url}[1]{\href{#1}{online}}
 
+
+
 $if(title)$
-\maketitle
+{
+ \thispagestyle{empty}
+ \maketitle
+}
 $endif$
 
 %% Add an abstract only for article
@@ -319,15 +336,12 @@ $if(abstract)$
 $endif$
 $endif$
 
-  
 $for(include-before)$
 $include-before$
 $endfor$
 
 $if(toc)$
 {
-  \definecolor{toc-links}{RGB}{150,10,10}
-  \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$toc-links$endif$}
   \setcounter{tocdepth}{$toc-depth$}
   \tableofcontents
   \newpage
