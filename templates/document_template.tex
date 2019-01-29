@@ -107,13 +107,6 @@ $if(fancypage)$\pagestyle{fancy}$endif$
 \fancyfoot[LE]{\thepage}
 \fancyfoot[RO]{\thepage}
 
-%\lhead{\itshape $title$}
-%\chead{}
-%\rhead{\itshape{\nouppercase{\leftmark}}}
-%$if(version)$\lfoot{v $version$}$endif$
-%\cfoot{}
-%\rfoot{\thepage}
-
 $if(language)$
 \ifxetex
 \usepackage{polyglossia}
@@ -321,7 +314,7 @@ $endfor$
 %\renewcommand{\url}[1]{\href{#1}{online}}
 
 
-
+%% Title
 $if(title)$
 {
  \thispagestyle{empty}
@@ -359,6 +352,7 @@ $if(lof)$
 \listoffigures
 \newpage
 $endif$
+
 
 $body$
 
