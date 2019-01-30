@@ -5,4 +5,7 @@ tblPrefix:
 figPrefix:
  - "Figure"
  - "Figures"
+linkReferences: true
+subfigGrid: true
+link-citations: true
 ...
