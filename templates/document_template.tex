@@ -267,8 +267,8 @@ $endif$
 %% is not supported: it should be implemented
 $if(institute)$
 \usepackage{authblk}
-\author{{\bf $for(author)$$author$$sep$ \and $endfor$}}
-\affil{\textit{$institute$} $if(contact)$\\ \vspace{1.0em} \normalsize Contact: \href{mailto:$contact$}{$contact$}$endif$}
+\author{\bf $for(author)$$author$$sep$ \and $endfor$}
+\affil{ \textit{$institute$} $if(contact)$\\ \vspace{1.0em} Contact: \href{mailto:$contact$}{$contact$}$endif$}
 $endif$
 
 \date{$date$}

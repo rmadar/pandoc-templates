@@ -8,15 +8,24 @@ if [ $# -ne 2 ]; then
     exit 1
 fi
 
+
 # PDF via latex
-pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml ${1} -o ${2} --template ${PANDOC_TEMPLATES}/document_template.tex \
+pandoc -N -s ${1}\
+       ${PANDOC_TEMPLATES}/cross_references.yaml ${PANDOC_TEMPLATES}/font_default.yaml\
+       -o ${2}\
+       --template ${PANDOC_TEMPLATES}/document_template.tex\
        --filter ${PANDOC_FILTERS}/pandoc-crossref\
        --filter pandoc-citeproc\
        --variable geometry="a4paper, total={6in,9in}"\
        -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
        --highlight-style tango\
        --toc -V fancypage\
-       -V fontfamily="sourcesanspro" -V fontoption="default" -V sans-serif
+
+
+#       -V fontfamily="sourcesanspro" -V fontoption="default" -V sans-serif\
+#       -V fontsize="15pt"\
+
+
 
 ## Other nice font combination
 # -V linestretch="1.0" -V fontsize="11pt" -V fontfamily="kmath,kerkis" 
