@@ -1,6 +1,5 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
-%% Needed for the bitstream-charter font
 \usepackage{beamerarticle}
 
 $if(fontfamily)$
@@ -30,7 +29,6 @@ $endif$
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage[bottom]{footmisc}
 
 $if(euro)$
@@ -233,7 +231,14 @@ $endif$
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength\parskip{0pt}%
+  \setlength\topsep{0pt}%
+  \setlength\parsep{0pt}%
+  \setlength\itemsep{0pt}%
+  \setlength\partopsep{0pt}%
+  \setlength\leftmargin{0pt}%
+  \setlength\labelwidth{0pt}%
+}
 
 
 $if(numbersections)$
@@ -306,8 +311,8 @@ $endfor$
 
 
 % Redefine list style as english default (no matter the default language)
-\renewcommand{\labelitemi}{\textbullet}
-\renewcommand{\labelitemii}\textendash{}
+\renewcommand{\labelitemi}{\(\bullet\)}
+\renewcommand{\labelitemii}{\textendash}
 \renewcommand{\labelitemiii}{\textasteriskcentered}
 \renewcommand{\labelitemiii}{\textperiodcentered}
 
