@@ -17,17 +17,4 @@ pandoc -N -s ${1}\
        --filter ${PANDOC_FILTERS}/pandoc-crossref\
        --filter pandoc-citeproc\
        --variable geometry="a4paper, total={6in,9in}"\
-       -V linestretch="1.2" -V fontsize="11pt" -V display-abstract\
-       --highlight-style tango\
-       --toc -V fancypage\
-
-
-#       -V fontfamily="sourcesanspro" -V fontoption="default" -V sans-serif\
-#       -V fontsize="15pt"\
-
-
-
-## Other nice font combination
-# -V linestretch="1.0" -V fontsize="11pt" -V fontfamily="kmath,kerkis" 
-# -V linestretch="1.2" -V fontsize="11pt" -V fontfamily="cmbright"
-# -V linestretch="1.2" -V fontsize="11pt" -V fontfamily="kurier"
+       --highlight-style tango

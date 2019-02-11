@@ -97,8 +97,9 @@ $endif$
   linkcolor=$if(linkcolor)$$linkcolor$$else$toc-links$endif$,
   pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
+$if(fancypage)$
 \usepackage{fancyhdr}
-$if(fancypage)$\pagestyle{fancy}$endif$
+\pagestyle{fancy}
 \pagenumbering{arabic}
 \fancyhead{}
 \fancyhead[LE]{\nouppercase\leftmark}
@@ -106,6 +107,9 @@ $if(fancypage)$\pagestyle{fancy}$endif$
 \fancyfoot{}
 \fancyfoot[LE]{\thepage}
 \fancyfoot[RO]{\thepage}
+$else$
+\pagestyle{empty}
+$endif$
 
 $if(language)$
 \ifxetex
