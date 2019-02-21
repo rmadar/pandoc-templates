@@ -3,4 +3,5 @@ fontfamily: "sourcesanspro"
 fontoption: "default"
 sans-serif: true
 fontsize: "10"
+linestretch: "1.2"
 ...
