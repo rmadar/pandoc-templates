@@ -3,6 +3,7 @@
 
   <info>
     <title>Modified IEEE style</title>
+    <id>romain-madar.com</id>
   </info>
   
   <locale xml:lang="en">
@@ -38,7 +39,7 @@
       <if type="article-journal report" match="any">
         <date variable="issued">
           <date-part name="month" form="short" suffix=" "/>
-          <date-part name="year" form="long"/>
+          <date-part name="year" form="short"/>
         </date>
       </if>
       <else-if type="bill book chapter graphic legal_case legislation motion_picture paper-conference song thesis" match="any">
@@ -80,10 +81,10 @@
       <text macro="edition"/>
       <group delimiter=" ">
         <text term="volume" form="short"/>
-        <number variable="volume" form="numeric"/>
+        <number variable="volume" form="symbol"/>
       </group>
       <group delimiter=" ">
-        <number variable="number-of-volumes" form="numeric"/>
+        <number variable="number-of-volumes" form="symbol"/>
         <text term="volume" form="short" plural="true"/>
       </group>
       <group delimiter=" ">
@@ -155,7 +156,7 @@
 
   <macro name="page">
     <group>
-      <label variable="page" form="short" suffix=" "/>
+      <label variable="page" form="long" suffix=" "/>
       <text variable="page"/>
     </group>
   </macro>
@@ -207,10 +208,10 @@
         <if type="article-journal">
           <group delimiter=", ">
             <text macro="title"/>
-            <!--text variable="container-title" font-style="italic" form="short"/-->
+	    <text variable="container-title"/>
             <text macro="locators"/>
             <text macro="page"/>
-            <text macro="issued"/>
+            <text macro="issued" form="symbol"/>
 	    <text macro="access"/>
           </group>
         </if>
