@@ -14,7 +14,7 @@ pandoc -N -s ${1}\
        ${PANDOC_TEMPLATES}/cross_references.yaml ${PANDOC_TEMPLATES}/font_default.yaml\
        -o ${2}\
        --template ${PANDOC_TEMPLATES}/document_template.tex\
-       --filter ${PANDOC_FILTERS}/pandoc-crossref\
+       --filter pandoc-crossref\
        --filter pandoc-citeproc\
        --variable geometry="a4paper, total={6in,9in}"\
        --highlight-style tango
