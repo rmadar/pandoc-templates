@@ -182,15 +182,14 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout delimiter=", ">
-      <group prefix="[" suffix="]" delimiter=", ">
-        <text variable="citation-number"/>
-        <text macro="citation-locator"/>
+    <layout delimiter=", " prefix="[" suffix="]">
+      <group prefix="" suffix="" delimiter=", ">
+	<text variable="citation-number"/>
+	<text macro="citation-locator"/>
       </group>
     </layout>
   </citation>
-
-
+  
   
   <!-- Bibliography -->
   <bibliography entry-spacing="0" second-field-align="flush">
