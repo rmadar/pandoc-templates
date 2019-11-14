@@ -10,8 +10,8 @@ fi
 
 
 # PDF via latex
-pandoc -N -s ${1}\
-       ${PANDOC_TEMPLATES}/cross_references.yaml ${PANDOC_TEMPLATES}/font_default.yaml\
+pandoc -N -s ${PANDOC_TEMPLATES}/cross_references.yaml ${PANDOC_TEMPLATES}/font_default.yaml\
+       ${1}\
        -o ${2}\
        --template ${PANDOC_TEMPLATES}/document_template.tex\
        --filter pandoc-crossref\
